@@ -4,11 +4,7 @@
 @section('title', 'ホーム')
 
 @section('content')
-<header>
-<div class="container">
 
-</div>
-</header>
  
 
   @endsection
