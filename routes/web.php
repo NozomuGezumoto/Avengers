@@ -11,4 +11,7 @@
 |
 */
 
-Route::get('/','MovieController@index')->name('movie.index');
+Route::get('/', 'MovieController@index')->name('movie.index');
+Route::get('/search', 'MovieController@search')->name('movie.search');
+Route::get('/review/{id}', 'MovieController@review')->name('movie.review');
+Route::get('/exchange', 'MovieController@exchange')->name('movie.exchange');
