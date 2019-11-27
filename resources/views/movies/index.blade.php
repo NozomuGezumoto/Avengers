@@ -14,7 +14,7 @@
       <p>{{$new_movie->title}}</p>
       {{-- 300,450 --}}
       <img src="https://image.tmdb.org/t/p/w300_and_h450_bestv2/{{$new_movie->poster_path}}">
-      <p>{{$new_movie->overview}}</p>
+      {{-- <p>{{$new_movie->overview}}</p> --}}
   @endforeach
 
   @endsection
