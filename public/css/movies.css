@@ -45,3 +45,19 @@ footer {
   text-align: center;
   font-size: 40px;
 }
+.container_serch{
+  margin-top: 10px;
+}
+button{
+  text-align: center;
+}
+.container_img{
+  margin: 10px;
+  margin-left: 28px;
+}
+.rounded-sm{
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 5px;
+  width: 100px;
+}
