@@ -7,7 +7,7 @@
 
     @foreach ($movies as $movie)
       {{-- $loopでforeachの数 index現在の出力数 ３になったら break終了 --}}
-      @if ($loop->index >= 3)
+      @if ($loop->index >= 5)
         @break
       @endif
 
