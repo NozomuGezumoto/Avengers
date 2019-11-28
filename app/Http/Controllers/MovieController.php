@@ -73,6 +73,7 @@ class MovieController extends Controller
 
     function review(int $id)
     {
+        env('API_KEY');
         $client = new Client();
         $url = 'https://api.themoviedb.org/3/movie/' . $id;
         $params = [
@@ -88,6 +89,8 @@ class MovieController extends Controller
         );
 
         $result = json_decode($response->getBody()->getContents());
+
+        // dd();
 
         return view('movies.review', [
             'id' => $result
