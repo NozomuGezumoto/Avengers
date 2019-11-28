@@ -13,8 +13,8 @@
 <body>
     <header>
       <div class="row">
-       <img class="main" src="images/animal.jpg">
-       <img class="main_2" src="images/fruit.jpg">
+      <img class="main" src="{{asset('images/animal.jpg')}}">
+      <img class="main_2" src="{{asset('images/fruit.jpg')}}">
             <h1 class="title">Movie Translator</h1>
           </div>
        </div>
