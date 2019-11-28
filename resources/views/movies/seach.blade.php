@@ -9,7 +9,7 @@
       <div class="row">
         <form action="{{ route('movie.review', ['id' => $movie->id]) }}" method="get">
           <a href="{{ route('movie.review', ['id' => $movie->id]) }}">
-          {{-- <p>{{$movie->title}}</p> --}}
+          <p>{{$movie->title}}</p>
           <img src="https://image.tmdb.org/t/p/w300_and_h450_bestv2/{{$movie->poster_path}}"></button>
           {{-- <p>{{$movie->overview}}</p> --}}
           </a>
