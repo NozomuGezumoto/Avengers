@@ -23,10 +23,10 @@
  @yield('content')
  <footer>
    <div class="footer">
-      <i class="fas fa-home icons"></i>
+      <a href="{!! action('MovieController@index') !!}"><i class="fas fa-home icons"></i></a>
       <i class="fas fa-search icons"></i>
       <i class="far fa-heart icons"></i>
-      <i class="far fa-user icons"></i>
+      <a href="{!! action('MovieController@Mypage') !!}"><i class="far fa-user icons"></i></a>
    </div>
  </footer>
  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

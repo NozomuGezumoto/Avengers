@@ -11,10 +11,15 @@
       <button type="submit" class="btn btn-primary">Submit</button>
   </form>
   @foreach ($new_movies as $new_movie)
+    <form action="{{ route('movie.review', ['id' => $new_movie->id]) }}" method="get">
+        <a href="{{ route('movie.review', ['id' => $new_movie->id]) }}">
       <p>{{$new_movie->title}}</p>
       {{-- 300,450 --}}
       <img src="https://image.tmdb.org/t/p/w300_and_h450_bestv2/{{$new_movie->poster_path}}">
       <p>{{$new_movie->overview}}</p>
+        </a>
+    </form>
   @endforeach
+
 
   @endsection

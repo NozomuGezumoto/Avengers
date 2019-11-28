@@ -1,30 +1,15 @@
 <!-- layout.blade.phpを読み込む -->
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="/css/app.css">
-    <link rel="stylesheet" href="/css/movies.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
-    <title>@yield('title')</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-</head>
+@extends('layout')
+
+@section('title', 'ホーム')
+
+@section('content')
 <body>
+{{-- へッターの中に一時的にログイン・ログアウトできる機能をつける app.blade.php--}}
     <header>
       <div class="row">
-       <img class="main" src="images/animal.jpg">
-       <img class="main_2" src="images/fruit.jpg">
             <h1 class="title">Movie Translator</h1>
-          </div>
-       </div>
-      </div>
-    </header>
- @yield('content')
- <footer>
-   {{-- フッターの中に一時的にログイン・ログアウトできる機能をつける --}}
-    <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+            <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
         <div class="container">
             <a class="navbar-brand" href="{{ url('/') }}">
                 {{ config('app.name', 'Laravel') }}
@@ -67,14 +52,45 @@
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                     @csrf
                                 </form>
-                            </div>
-                        </li>
-                    @endguest
-                </ul>
-            </div>
-        </div>
-    </nav>
-   {{-- フッターの中に一時的にログイン・ログアウトできる機能をつける --}}
+                              </div>
+                          </li>
+                     @endguest
+                  </ul>
+              </div>
+          </div>
+      </nav>
+    </div>
+  </header>
+
+  <h3>プロフィール</h3>
+ 
+   
+<div style="margin-top: 30px;">
+   
+<table class="table table-striped">  
+<tr>
+<th>氏名</th>
+<td>{{ Auth::user()->name }}</td>
+</tr>  
+<tr>
+<th>メールアドレス</th>
+<td>{{ Auth::user()->email }}</td>
+</tr>  
+<tr>
+<th>コメント</th>
+<td>{{ Auth::user()->comment }}</td>
+</tr>
+<tr>
+<th>プログラム経験年数</th>
+<td>{{ Auth::user()->experience }}</td>
+</tr>
+</table>
+ 
+</div>
+{{-- へッターの中に一時的にログイン・ログアウトできる機能をつける app.blade.php--}}
+ @yield('content')
+ <footer>
+
    {{-- <div class="footer">
       <i class="fas fa-home icons"></i>
       <i class="fas fa-search icons"></i>
@@ -82,8 +98,4 @@
       <i class="far fa-user icons"></i>
    </div> --}}
  </footer>
- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-</body>
-</html>
+ @endsection

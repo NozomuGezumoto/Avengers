@@ -104,5 +104,9 @@ class MovieController extends Controller
     {
         return view('movies.exchange');
     }
+    function Mypage()
+    {
+        return view('movies.Mypage');
+    }
 
 }
