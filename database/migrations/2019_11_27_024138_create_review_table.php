@@ -17,7 +17,7 @@ class CreateReviewTable extends Migration
             $table->increments('id');
             $table->integer('user_id');
             $table->integer('movie_id');
-            $table->text('comment');
+            $table->text('comment')->nullable();
             $table->string('img_animal');
             $table->string('img_food');
             $table->timestamps();

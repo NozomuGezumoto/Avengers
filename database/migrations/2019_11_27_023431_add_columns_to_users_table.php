@@ -15,8 +15,8 @@ class AddColumnsToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('img');
-            $table->text('comment');
+            $table->string('img')->nullable();
+            $table->text('comment')->nullable();
         });
     }
 
