@@ -28,9 +28,10 @@ h1 {
 footer {
   width: 100%;
   text-align: center;
-  position: absolute;
-  bottom: 0;
+  position: fixed;
+  bottom: 10px;
   height: 35px;
+  z-index: 10;
 }
 
 .footer {
@@ -39,9 +40,46 @@ footer {
   display: flex;
   justify-content: space-around;
 }
+.footer{
+  background-color: rgb(236, 231, 225);
+  opacity: 0.9;
+}
 
 .icons {
   /* margin-left: 10px; */
   text-align: center;
   font-size: 40px;
+}
+/* start.index */
+.container_serch{
+  margin-top: 10px;
+}
+button{
+  text-align: center;
+}
+.rounded-sm{
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 5px;
+  width: 100px;
+}
+
+.container_serch{
+  padding-top: 10px;
+  padding-left: 10px;
+  margin: auto;
+}
+.container_img{
+  margin: 10px;
+  margin-left: 28px;
+}
+/* end.index */
+.container_list{
+  text-align: center;
+  margin-left: 70px;
+}
+.btn_review{
+  padding-top: 20px;
+  display: flex;
+  justify-content: space-around;
 }
