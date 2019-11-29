@@ -86,3 +86,9 @@ button{
 form{
   padding-top: 30px;
 }
+
+.title{
+  width: 100%;
+  text-align: center;
+  margin: 0;
+}
