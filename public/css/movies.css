@@ -83,3 +83,6 @@ button{
   display: flex;
   justify-content: space-around;
 }
+form{
+  padding-top: 30px;
+}
