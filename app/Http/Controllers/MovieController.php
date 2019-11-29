@@ -63,6 +63,11 @@ class MovieController extends Controller
         // getBody()コンテンツを取得します。
         // getContents()〜の内容を全て文字列に読み込む
 
+        // usort 映画APIを昇順・降順に並べる
+        usort($results, function($a, $b) {
+            return $a->release_date > $b->release_date ? -1 : 1;
+        });
+
         return view('movies.seach', [
             'movies' => $results
             // 'movies_title' => $response -> getBody()
@@ -73,6 +78,7 @@ class MovieController extends Controller
 
     function review(int $id)
     {
+        env('API_KEY');
         $client = new Client();
         $url = 'https://api.themoviedb.org/3/movie/' . $id;
         $params = [
@@ -89,6 +95,8 @@ class MovieController extends Controller
 
         $result = json_decode($response->getBody()->getContents());
 
+        // dd();
+
         return view('movies.review', [
             'id' => $result
             // 'movies_title' => $response -> getBody()
@@ -100,6 +108,10 @@ class MovieController extends Controller
     function exchange()
     {
         return view('movies.exchange');
+    }
+    function Mypage()
+    {
+        return view('movies.Mypage');
     }
 
 }

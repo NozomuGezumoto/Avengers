@@ -4,7 +4,13 @@
 
 @section('content')
 {{-- <div>{{ $movies }}</div> --}}
+
     @foreach ($movies as $movie)
+      {{-- $loopでforeachの数 index現在の出力数 ３になったら break終了 --}}
+      @if ($loop->index >= 5)
+        @break
+      @endif
+
      <div class="container_list">
       <div class="row">
         <form action="{{ route('movie.review', ['id' => $movie->id]) }}" method="get">

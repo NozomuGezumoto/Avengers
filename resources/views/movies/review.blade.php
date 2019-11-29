@@ -11,7 +11,7 @@
         <img src="https://image.tmdb.org/t/p/w300_and_h450_bestv2/{{$id->poster_path}}">
         {{-- <p>{{$id->overview}}</p> --}}
         <div class="btn_review">
-          <button type="submit" class="btn-outline-warning btn-lg">review</button>
+            <button type="submit" class="btn-outline-warning btn-lg">review</button>
         </div>
       </form>
     </div>
