@@ -53,7 +53,16 @@ footer {
 /* start.index */
 .container_serch{
   margin-top: 10px;
+  display: flex;
+  justify-content: center;
 }
+
+.row{
+  display: flex;
+  justify-content: center;
+  margin-left: 15px;
+}
+
 button{
   text-align: center;
 }
