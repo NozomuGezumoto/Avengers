@@ -25,7 +25,7 @@
                 <a href="{{ route('movie.review', ['id' => $new_movie->id]) }}">
                 {{-- <p class="movie_title">{{$new_movie->title}}</p> --}}
                 {{-- 300,450 --}}
-                <img src="https://image.tmdb.org/t/p/w300_and_h450_bestv2/{{$new_movie->poster_path}}" class="rounded-sm">
+                <img src="https://image.tmdb.org/t/p/w300_and_h450_bestv2/{{$new_movie->poster_path}}" class="col-xs-3">
                 {{-- <p>{{$new_movie->overview}}</p> --}}
                 </a>
             </form>
