@@ -91,7 +91,7 @@
 
 
                         <div class="form-group row">
-                                <label for="picture" class="col-md-4 col-form-label text-md-right">Profile picutre</label>
+                                <label for="picture" class="col-md-4 col-form-label text-md-right">イメージ画像</label>
                             
                                 <div class="col-md-6">
                                     <input id="picture" type="file" name="picture"
@@ -122,6 +122,20 @@
                                     @enderror
                                 </div>
                             </div> --}}
+
+                            <div class="form-group row">
+                                    <label for="text" class="col-md-4 col-form-label text-md-right">{{ __('コメント') }}</label>
+        
+                                    <div class="col-md-6">
+                                        <input id="comment" type="comment" class="form-control @error('comment') is-invalid @enderror" name="comment" required autocomplete="new-comment">
+        
+                                        @error('comment')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+                                </div>
 
 
                         <div class="form-group row mb-0">
