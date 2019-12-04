@@ -37,6 +37,13 @@ class MovieController extends Controller
         ]);
     }
 
+    function searchicon()
+    {
+        return view('movies.search', [
+            'movies' => []
+        ]);
+    }
+
     function search(Request $request)
     {
         $client = new Client();
@@ -68,7 +75,7 @@ class MovieController extends Controller
             return $a->release_date > $b->release_date ? -1 : 1;
         });
 
-        return view('movies.seach', [
+        return view('movies.search', [
             'movies' => $results
             // 'movies_title' => $response -> getBody()
         ]);
@@ -112,6 +119,16 @@ class MovieController extends Controller
     function Mypage()
     {
         return view('movies.Mypage');
+    }
+    function review2(Request $request)
+    {
+        // $post = Post::find($request->animal);
+        return view('movies.review2');
+    }
+    function match(Request $request)
+    {
+        dd($request->fruit);
+        return view('movies.match');
     }
 
     function register()
