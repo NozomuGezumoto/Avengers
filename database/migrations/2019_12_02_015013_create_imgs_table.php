@@ -13,7 +13,7 @@ class CreateImgsTable extends Migration
      */
     public function up()
     {
-        Schema::create('imgs', function (Blueprint $table) {
+        Schema::create('img', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('path');
             $table->integer('category');
@@ -28,6 +28,6 @@ class CreateImgsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('imgs');
+        Schema::dropIfExists('img');
     }
 }

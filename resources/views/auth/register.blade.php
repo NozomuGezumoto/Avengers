@@ -35,7 +35,7 @@
                 <div class="card-header">{{ __('新規登録') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
+                    <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
                         @csrf
 
                         <div class="form-group row">
@@ -89,19 +89,53 @@
                         </div>
 
 
+
                         <div class="form-group row">
-                            <label for="picture" class="col-md-4 col-form-label text-md-right">プロフィール写真</label>
-
-                            <div class="col-md-6">
-                                <input id="picture" type="file" class="form-control{{ $errors->has('picture') ? ' is-invalid' : '' }}" name="picture" required>
-
-                                @if ($errors->has('picture'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('picture') }}</strong>
-                                    </span>
-                                @endif
+                                <label for="picture" class="col-md-4 col-form-label text-md-right">イメージ画像</label>
+                            
+                                <div class="col-md-6">
+                                    <input id="picture" type="file" name="picture"
+                                      class="form-control{{ $errors->has('picture') ? ' is-invalid' : '' }}"
+                                    >
+                            
+                                    @if ($errors->has('picture'))
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $errors->first('picture') }}</strong>
+                                        </span>
+                                    @endif
+                                </div>
                             </div>
-                        </div>
+
+
+
+
+                        {{-- <div class="form-group row">
+                                <label for="picture" class="col-md-4 col-form-label text-md-right">{{ __('picture') }}</label>
+    
+                                <div class="col-md-6">
+                                    <input id="picture" type="file" class="form-control @error('picture') is-invalid @enderror" name="picture">
+    
+                                    @error('picture')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div> --}}
+
+                            <div class="form-group row">
+                                    <label for="text" class="col-md-4 col-form-label text-md-right">{{ __('コメント') }}</label>
+        
+                                    <div class="col-md-6">
+                                        <input id="comment" type="comment" class="form-control @error('comment') is-invalid @enderror" name="comment" required autocomplete="new-comment">
+        
+                                        @error('comment')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+                                </div>
 
 
                         <div class="form-group row mb-0">
