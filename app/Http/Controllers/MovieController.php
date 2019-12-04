@@ -123,4 +123,32 @@ class MovieController extends Controller
         dd($request->fruit);
         return view('movies.match');
     }
+
+    function register()
+    {
+        return view('movies.register');
+    }
+
+    function email()
+    {
+        return view('movies.email');
+    }
+
+    function login()
+    {
+        return view('movies.login');
+    }
+
+    function reset()
+    {
+        // $token = "test";
+        // return view('movies.reset', ['token' => $token]);
+        return view('movies.reset');
+    }
+
+    function verify()
+    {
+        return view('movies.verify');
+    }
+
 }
