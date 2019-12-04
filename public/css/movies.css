@@ -16,6 +16,12 @@
   width: 50%;
 }
 
+.title{
+  width: 100%;
+  text-align: center;
+  margin: auto;
+}
+
 h1 {
   text-align: center;
   font-size: 40px;
@@ -66,21 +72,28 @@ footer {
 button{
   text-align: center;
 }
-.rounded-sm{
+/* .rounded-sm{
   display: flex;
   justify-content: space-between;
   padding: 5px 5px;
   width: 100px;
-}
+} */
 
 .container_serch{
   padding-top: 10px;
   padding-left: 10px;
   margin: auto;
+  display: flex;
+  justify-content: center;
 }
 .container_img{
   margin: 10px;
   margin-left: 28px;
+}
+.row{
+  display: flex;
+  justify-content: center;
+  margin-left: 15px;
 }
 /* end.index */
 .container_list{
