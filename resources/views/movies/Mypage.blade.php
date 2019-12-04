@@ -64,9 +64,14 @@
 
   <h3>プロフィール</h3>
 
+
+{{-- イメージ画像表示 --}}
     <li class="nav-item">
         <img height="80px" src="{{ asset(Auth::user()->picture_path) }}" >
     </li>
+
+
+
 <div style="margin-top: 30px;">
    
 <table class="table table-striped">  
