@@ -37,6 +37,13 @@ class MovieController extends Controller
         ]);
     }
 
+    function searchicon()
+    {
+        return view('movies.search', [
+            'movies' => []
+        ]);
+    }
+
     function search(Request $request)
     {
         $client = new Client();
@@ -68,7 +75,7 @@ class MovieController extends Controller
             return $a->release_date > $b->release_date ? -1 : 1;
         });
 
-        return view('movies.seach', [
+        return view('movies.search', [
             'movies' => $results
             // 'movies_title' => $response -> getBody()
         ]);
