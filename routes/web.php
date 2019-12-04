@@ -10,7 +10,16 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
+Auth::routes();
+Route::group(['middleware' => ['auth']], function ()
+{
+Route::get('/', 'MovieController@index')->name('movie.index');
+Route::get('/search', 'MovieController@search')->name('movie.search');
+Route::get('/review/{id}', 'MovieController@review')->name('movie.review');
+Route::get('/exchange', 'MovieController@exchange')->name('movie.exchange');
+Route::get('/Mypage', 'MovieController@Mypage')->name('movie.Mypage');
+Route::get('/review2', 'MovieController@review2')->name('movie.review2');
+Route::get('/match', 'MovieController@match')->name('movie.match');
 });
+
+// Route::get('/home', 'HomeController@index')->name('home');
