@@ -5,9 +5,7 @@
 
 @section('content')
 
-<<<<<<< HEAD
 
-=======
 <div class="container_serch">
   <div class="row">
     <div class="col-sm-6 movies">
@@ -20,7 +18,6 @@
       </form>
   </div>
 </div>
->>>>>>> develop
 <div class="container_img">
     <div class="row">
         @foreach ($new_movies as $new_movie)
