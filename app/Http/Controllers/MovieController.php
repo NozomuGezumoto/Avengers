@@ -120,6 +120,16 @@ class MovieController extends Controller
     {
         return view('movies.Mypage');
     }
+    function review2(Request $request)
+    {
+        // $post = Post::find($request->animal);
+        return view('movies.review2');
+    }
+    function match(Request $request)
+    {
+        dd($request->fruit);
+        return view('movies.match');
+    }
 
     function register()
     {

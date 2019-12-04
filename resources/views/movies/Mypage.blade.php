@@ -63,8 +63,10 @@
   </header>
 
   <h3>プロフィール</h3>
- 
-   
+
+    <li class="nav-item">
+        <img height="40px" src="{{ asset(Auth::user()->picture_path) }}" >
+    </li>
 <div style="margin-top: 30px;">
    
 <table class="table table-striped">  
