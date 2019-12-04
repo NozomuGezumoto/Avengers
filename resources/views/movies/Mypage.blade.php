@@ -83,8 +83,8 @@
 <td>{{ Auth::user()->comment }}</td>
 </tr>
 <tr>
-<th>プログラム経験年数</th>
-<td>{{ Auth::user()->experience }}</td>
+<th>画像</th>
+<td>{{ Auth::user()->img }}</td>
 </tr>
 </table>
  
