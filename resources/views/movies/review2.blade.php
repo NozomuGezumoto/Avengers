@@ -14,27 +14,29 @@
          <div class="img_list"> --}}
   {{-- <div class="col-sm-12">
     <div class="row"> --}}
-    <div class="sub">
-      <p><b>Animals</b></p>
-    </div>
-          <form action="{{ route('movie.review2') }}" method="get" class="form" id="actionform">
-            <img class="img" src="{{asset('images/animal.jpg')}}">
-            <img class="img" src="{{asset('images/animal1.jpg')}}">
-            <img class="img" src="{{asset('images/animal3.jpg')}}">
-            <img class="img" src="{{asset('images/animal4.jpg')}}">
-            <img class="img" src="{{asset('images/animal5.jpg')}}">
+  {{-- $value = $_POST['value']; --}}
+  <div class="sub">
+    <p><b>Fruits</b></p>
+  </div>
+    <form action="{{ route('movie.match') }}" method="get"
+    class="form" id="actionform">
+        <img class="img2" src="{{asset('images/animal6.jpg')}}">
+        <img class="img2" src="{{asset('images/animal7.jpg')}}">
+        <img class="img2" src="{{asset('images/animal8.jpg')}}">
+        <img class="img2" src="{{asset('images/animal9.jpg')}}">
+        <img class="img2" src="{{asset('images/animal10.jpg')}}">
           {{-- <div>
         <button type="submit" class="btn_ex btn-outline-warning btn-lg">次へ</button>
           </div> --}}
-          </form>
-           {{-- </div>
-           </div> --}}
+      </form>
+    {{-- </div>
+  </div> --}}
          {{-- </div> --}}
         {{-- <div id="close">
           閉じる
        </div> --}}
 
-    </div>
+      </div>
   </div>
       </section>
 

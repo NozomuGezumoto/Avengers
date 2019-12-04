@@ -53,3 +53,67 @@ function disp(){
 //     })
 //   }
 // }
+
+//ポップアップ
+// $(document).on('click', 'open', function() {
+// 	console.log('ボタンがクリックされました。');
+// });
+
+// 'use strict';
+// {
+//   const open = document.getElementById('open');
+//   const close = document.getElementById('close');
+//   const modal = document.getElementById('modal');
+//   const mask = document.getElementById('mask');
+
+//   open.addEventListener('click', function () {
+//     modal.classList.remove('hidden');
+//     mask.classList.remove('hidden');
+//   });
+//   close.addEventListener('click', function () {
+//     modal.classList.add('hidden');
+//     mask.classList.add('hidden');
+//   });
+//   mask.addEventListener('click', function () {
+//     modal.classList.add('hidden');
+//     mask.classList.add('hidden');
+//   });
+// }
+// review1
+// $(document).on('click','.img', function(){
+// 	// alert('click');
+// 	let movieId = $(this).attr('src');
+// 	// alert(movieId);
+// 	$('<input>').attr({
+//     type: 'hidden',
+//     name: 'animal',
+//     value: movieId
+// 	}).appendTo('#actionform');
+// 	$('#actionform').submit();
+// });
+
+$(document).on('click','.img', function(){
+	// alert('click');
+	let movieId = $(this).attr('src');
+	// alert(movieId);
+	$('<input>').attr({
+    type: 'hidden',
+    name: 'animal',
+    value: movieId
+	}).appendTo('#actionform');
+	$('#actionform').submit();
+});
+
+$(document).on('click','.img2', function(){
+	// alert('click');
+	let movieId = $(this).attr('src');
+	// alert(movieId);
+	$('<input>').attr({
+    type: 'hidden',
+    name: 'fruit',
+    value: movieId
+	}).appendTo('#actionform');
+	$('#actionform').submit();
+});
+
+
