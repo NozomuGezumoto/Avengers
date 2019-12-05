@@ -23,11 +23,10 @@
    <div class="footer">
       <a href="{!! action('MovieController@index') !!}"><i class="fas fa-home icons"></i></a>
       <a href="{!! action('MovieController@searchicon') !!}"><i class="fas fa-search icons"></i></a>
-<<<<<<< HEAD
       <a href="{!! action('MovieController@hearticon') !!}"><i class="far fa-heart icons"></i></a>
-      <a href="{!! action('MovieController@Mypage') !!}"><i class="far fa-user icons"></i></a>
-=======
-      <i class="far fa-heart icons"></i>
+
+      {{-- <a href="{!! action('MovieController@Mypage') !!}"><i class="far fa-user icons"></i></a> --}}
+      {{-- <i class="far fa-heart icons"></i> --}}
 
 
       {{-- マイページへのリンク --}}
@@ -49,7 +48,6 @@
 
 
 
->>>>>>> 91248e95de34897ec486aecb9d71861e5e84df15
    </div>
  </footer>
  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
