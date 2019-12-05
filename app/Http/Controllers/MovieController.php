@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use GuzzleHttp\Client;
+use App\Img;
 
 class MovieController extends Controller
 {
@@ -117,6 +118,7 @@ class MovieController extends Controller
         return view('movies.review', [
             'id' => $result
             // 'movies_title' => $response -> getBody()
+            // $request
         ]);
 
 
@@ -124,7 +126,10 @@ class MovieController extends Controller
 
     function exchange()
     {
-        return view('movies.exchange');
+        // $data = Img::all();
+        $data = Img::where('category', 1)->get();
+        return view('movies.exchange',
+    ['data' => $data]);
     }
     function Mypage()
     {
@@ -132,13 +137,18 @@ class MovieController extends Controller
     }
     function review2(Request $request)
     {
-        // $post = Post::find($request->animal);
-        return view('movies.review2');
+        $request->session()->put('img1', $request->animal);
+        $data = Img::where('category', 2)->get();
+        return view('movies.review2',
+    ['data' => $data]);
     }
     function match(Request $request)
     {
-        dd($request->fruit);
-        return view('movies.match');
+        $img1 = $request->session()->get('img1');
+        $request->session()->put('img2', $request->fruit);
+        $img2 = $request->session()->get('img2');
+        // dd($img1);
+        return view('movies.match',['img1' => $img1],['img2' => $img2]);
     }
 
     function register()
@@ -166,6 +176,12 @@ class MovieController extends Controller
     function verify()
     {
         return view('movies.verify');
+    }
+
+    function confirm()
+    {
+    
+        return view('movies.confirm');
     }
 
 }
