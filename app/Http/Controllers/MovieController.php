@@ -83,6 +83,16 @@ class MovieController extends Controller
 
     }
 
+
+ // ❤アイコンを押して、フォロワーページに飛べるように。
+    function hearticon()
+    {
+        return view('movies.follower');
+    }
+
+
+
+
     function review(int $id)
     {
         env('API_KEY');
