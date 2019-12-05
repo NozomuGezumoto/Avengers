@@ -23,10 +23,8 @@
    <div class="footer">
       <a href="{!! action('MovieController@index') !!}"><i class="fas fa-home icons"></i></a>
       <a href="{!! action('MovieController@searchicon') !!}"><i class="fas fa-search icons"></i></a>
-      <a href="{!! action('MovieController@hearticon') !!}"><i class="far fa-heart icons"></i></a>
+      <a href="{!! action('MovieController@hearticon') !!}"><i class="far fa-heart icons"></i></a
 
-      {{-- <a href="{!! action('MovieController@Mypage') !!}"><i class="far fa-user icons"></i></a> --}}
-      {{-- <i class="far fa-heart icons"></i> --}}
 
 
       {{-- マイページへのリンク --}}
