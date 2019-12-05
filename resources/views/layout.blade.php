@@ -26,6 +26,7 @@
       <a href="{!! action('MovieController@hearticon') !!}"><i class="far fa-heart icons"></i></a>
 
 
+
       {{-- マイページへのリンク --}}
       {{-- <a href="{!! action('MovieController@Mypage') !!}">
         <i class="far fa-user icons">
