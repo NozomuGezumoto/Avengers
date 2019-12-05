@@ -20,15 +20,28 @@
   </div>
     <form action="{{ route('movie.match') }}" method="get"
     class="form" id="actionform">
-        <img class="img2" src="{{asset('images/animal6.jpg')}}">
-        <img class="img2" src="{{asset('images/animal7.jpg')}}">
-        <img class="img2" src="{{asset('images/animal8.jpg')}}">
-        <img class="img2" src="{{asset('images/animal9.jpg')}}">
-        <img class="img2" src="{{asset('images/animal10.jpg')}}">
-          {{-- <div>
-        <button type="submit" class="btn_ex btn-outline-warning btn-lg">次へ</button>
-          </div> --}}
-      </form>
+   
+    {{-- @foreach ($data as $data)
+    @if ($loop->index >= 5)
+    @break
+    @endif
+    <img  class="img2" src="{{$data->path}}">
+    @endforeach --}}
+
+    @foreach ($data as $data)
+    @if ($loop->index >= 10)
+    @elseif (
+    $loop->index === 1|
+    $loop->index === 2||
+    $loop->index === 3||
+    $loop->index === 0||
+    $loop->index === 4)
+    @continue
+    @break
+    @endif
+    <img  class="img2" src="{{$data->path}}">
+    @endforeach
+
     {{-- </div>
   </div> --}}
          {{-- </div> --}}

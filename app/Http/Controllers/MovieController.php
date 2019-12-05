@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use GuzzleHttp\Client;
+use App\Img;
 
 class MovieController extends Controller
 {
@@ -114,7 +115,9 @@ class MovieController extends Controller
 
     function exchange()
     {
-        return view('movies.exchange');
+        $data = Img::all();
+        return view('movies.exchange',
+    ['data' => $data]);
     }
     function Mypage()
     {
@@ -122,8 +125,9 @@ class MovieController extends Controller
     }
     function review2(Request $request)
     {
-        // $post = Post::find($request->animal);
-        return view('movies.review2');
+        $data = Img::all();
+        return view('movies.review2',
+    ['data' => $data]);
     }
     function match(Request $request)
     {
