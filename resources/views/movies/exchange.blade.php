@@ -17,18 +17,17 @@
     <div class="sub">
       <p><b>Animals</b></p>
     </div>
-          <form action="{{ route('movie.review2') }}" method="get" class="form" id="actionform">
+    {{-- <div class="img_a"> --}}
+      <form action="{{ route('movie.review2') }}" method="get" class="form" id="actionform">
 
-    @foreach ($data as $data)
-    @if ($loop->index >= 5)
-    @break
-    @endif
-    <img  class="animal_img" src="{{$data->path}}">
-    @endforeach
-          {{-- <div>
-        <button type="submit" class="btn_ex btn-outline-warning btn-lg">次へ</button>
-          </div> --}}
-          </form>
+        @foreach ($data as $data)
+        @if ($data->category == 2)
+          @continue
+      @endif
+        <img  class="animal_img click-img" src="{{$data->path}}">
+        @endforeach
+      </form>
+    {{-- </div> --}}
            {{-- </div>
            </div> --}}
          {{-- </div> --}}

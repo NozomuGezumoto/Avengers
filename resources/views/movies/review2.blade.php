@@ -29,16 +29,9 @@
     @endforeach --}}
 
     @foreach ($data as $data)
-    @if ($loop->index >= 10)
-    @elseif (
-    $loop->index === 1|
-    $loop->index === 2||
-    $loop->index === 3||
-    $loop->index === 0||
-    $loop->index === 4)
-    @continue
-    @break
-    @endif
+      @if ($data->category == 1)
+          @continue
+      @endif
     <img  class="img2" src="{{$data->path}}">
     @endforeach
 
