@@ -104,7 +104,7 @@ class MovieController extends Controller
 
 
 
-    function review(int $id, Request $request)
+    function review(int $id)
     {
         env('API_KEY');
         $client = new Client();
@@ -124,6 +124,9 @@ class MovieController extends Controller
         $result = json_decode($response->getBody()->getContents());
 
         $reviews = Review::with('user')->where('movie_id', $id)->get();
+
+        // $request->session()->put('movie_id', $request);
+        // dd($request);
 
 
         return view('movies.review', [
@@ -147,14 +150,14 @@ class MovieController extends Controller
     {
         return view('movies.Mypage');
     }
-    function review2()
+    function review2(Request $request)
     {
         $request->session()->put('img1', $request->animal);
         $data = Img::where('category', 2)->get();
         return view('movies.review2',
     ['data' => $data]);
     }
-    function match()
+    function match(Request $request)
     {
         $img1 = $request->session()->get('img1');
         $request->session()->put('img2', $request->fruit);
