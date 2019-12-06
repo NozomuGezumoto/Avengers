@@ -4,19 +4,20 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddColumnsToUsersTable extends Migration
+class CreateImgsTable extends Migration
 {
     /**
      * Run the migrations.
      *
      * @return void
      */
-
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->string('picture_path')->nullable();
-            $table->text('comment')->nullable();
+        Schema::create('imgs', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('path');
+            $table->integer('category');
+            $table->timestamps();
         });
     }
 
@@ -27,8 +28,6 @@ class AddColumnsToUsersTable extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('imgs');
     }
 }

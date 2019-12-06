@@ -92,7 +92,7 @@ function disp(){
 // 	$('#actionform').submit();
 // });
 
-$(document).on('click','.img', function(){
+$(document).on('click','.click-img', function(){
 	// alert('click');
 	let movieId = $(this).attr('src');
 	// alert(movieId);

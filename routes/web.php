@@ -14,12 +14,15 @@ Auth::routes();
 Route::group(['middleware' => ['auth']], function ()
 {
 Route::get('/', 'MovieController@index')->name('movie.index');
-Route::get('/search', 'MovieController@search')->name('movie.search');
+
+//ログイン
+Route::get('/search1', 'MovieController@search')->name('movie.search');
+Route::get('/search', 'MovieController@searchicon')->name('movie.searchicon');
+Route::get('/heart', 'MovieController@hearticon')->name('movie.hearticon');
 Route::get('/review/{id}', 'MovieController@review')->name('movie.review');
 Route::get('/exchange', 'MovieController@exchange')->name('movie.exchange');
 Route::get('/Mypage', 'MovieController@Mypage')->name('movie.Mypage');
 Route::get('/review2', 'MovieController@review2')->name('movie.review2');
 Route::get('/match', 'MovieController@match')->name('movie.match');
+Route::get('/confirm', 'MovieController@confirm')->name('movie.confirm');
 });
-
-// Route::get('/home', 'HomeController@index')->name('home');

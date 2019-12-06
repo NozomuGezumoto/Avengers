@@ -5,6 +5,7 @@
 
 @section('content')
 
+
 <div class="container_serch">
   <div class="row">
     <div class="col-sm-6 movies">
@@ -19,15 +20,14 @@
 </div>
 <div class="container_img">
     <div class="row">
-        @foreach ($new_movies as $new_movie)
-
-            <form action="{{ route('movie.review', ['id' => $new_movie->id]) }}" method="get">
-                <a href="{{ route('movie.review', ['id' => $new_movie->id]) }}">
-                {{-- <p class="movie_title">{{$new_movie->title}}</p> --}}
-                {{-- 300,450 --}}
-                <img src="https://image.tmdb.org/t/p/w300_and_h450_bestv2/{{$new_movie->poster_path}}" class="rounded-sm">
+      @foreach ($new_movies as $new_movie)
+      <form action="{{ route('movie.review', ['id' => $new_movie->id]) }}" method="get">
+          <a href="{{ route('movie.review', ['id' => $new_movie->id]) }}">
+              {{-- <p class="movie_title">{{$new_movie->title}}</p> --}}
+              {{-- 300,450 --}}
+                <img class="title_img" src="https://image.tmdb.org/t/p/w300_and_h450_bestv2/{{$new_movie->poster_path}}">
+              </a>
                 {{-- <p>{{$new_movie->overview}}</p> --}}
-                </a>
             </form>
         @endforeach
     </div>

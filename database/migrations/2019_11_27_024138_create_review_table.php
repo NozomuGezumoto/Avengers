@@ -18,8 +18,8 @@ class CreateReviewTable extends Migration
             $table->integer('user_id');
             $table->integer('movie_id');
             $table->text('comment')->nullable();
-            $table->string('img_animal');
-            $table->string('img_food');
+            $table->string('animal_img_path');
+            $table->string('food_img_path');
             $table->timestamps();
         });
     }

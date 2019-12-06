@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'picture_path', 'comment'
     ];
 
     /**
@@ -36,4 +36,10 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function reviews()
+    {
+        // １対多 の関係の多
+        return $this->hasMany(Review::class);
+    }
 }

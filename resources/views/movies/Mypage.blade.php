@@ -1,7 +1,7 @@
 <!-- layout.blade.phpを読み込む -->
 @extends('layout')
 
-@section('title', 'ホーム')
+@section('title', 'マイページ')
 
 @section('content')
 <body>
@@ -63,8 +63,15 @@
   </header>
 
   <h3>プロフィール</h3>
- 
-   
+
+
+{{-- イメージ画像表示 --}}
+    <li class="nav-item">
+        <img height="80px" src="{{ asset(Auth::user()->picture_path) }}" >
+    </li>
+
+
+
 <div style="margin-top: 30px;">
    
 <table class="table table-striped">  
@@ -79,10 +86,6 @@
 <tr>
 <th>コメント</th>
 <td>{{ Auth::user()->comment }}</td>
-</tr>
-<tr>
-<th>プログラム経験年数</th>
-<td>{{ Auth::user()->experience }}</td>
 </tr>
 </table>
  

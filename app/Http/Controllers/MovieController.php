@@ -4,6 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use GuzzleHttp\Client;
+use App\Img;
+
+
+use App\Review;
+use App\User;
 
 class MovieController extends Controller
 {
@@ -27,13 +32,20 @@ class MovieController extends Controller
 
         $results = json_decode($response->getBody()->getContents())->results;
 
-        // dd($results);
         // getBody()コンテンツを取得します。
         // getContents()〜の内容を全て文字列に読み込む
+
 
         return view('movies.index', [
             'new_movies' => $results
             // 'movies_title' => $response -> getBody()
+        ]);
+    }
+
+    function searchicon()
+    {
+        return view('movies.search', [
+            'movies' => []
         ]);
     }
 
@@ -59,7 +71,8 @@ class MovieController extends Controller
 
         $results = json_decode($response->getBody()->getContents())->results;
 
-        // dd($results);
+
+
         // getBody()コンテンツを取得します。
         // getContents()〜の内容を全て文字列に読み込む
 
@@ -68,13 +81,28 @@ class MovieController extends Controller
             return $a->release_date > $b->release_date ? -1 : 1;
         });
 
-        return view('movies.seach', [
+        $request->session()->put('contact', $request->contact);
+        // dd($request);
+
+        return view('movies.search', [
             'movies' => $results
             // 'movies_title' => $response -> getBody()
         ]);
 
 
     }
+
+
+ // ❤アイコンを押して、フォロワーページに飛べるように。
+    function hearticon()
+    {
+        // $users = User::find(1)->reviews;
+        // dd($users);
+        return view('movies.follower');
+    }
+
+
+
 
     function review(int $id)
     {
@@ -95,11 +123,17 @@ class MovieController extends Controller
 
         $result = json_decode($response->getBody()->getContents());
 
-        // dd();
+        $reviews = Review::with('user')->where('movie_id', $id)->get();
+
+        // $request->session()->put('movie_id', $request);
+        // dd($request);
+
 
         return view('movies.review', [
-            'id' => $result
+            'id' => $result,
+            'reviews' => $reviews,
             // 'movies_title' => $response -> getBody()
+            // $request
         ]);
 
 
@@ -107,7 +141,10 @@ class MovieController extends Controller
 
     function exchange()
     {
-        return view('movies.exchange');
+        // $data = Img::all();
+        $data = Img::where('category', 1)->get();
+        return view('movies.exchange',
+    ['data' => $data]);
     }
     function Mypage()
     {
@@ -115,12 +152,51 @@ class MovieController extends Controller
     }
     function review2(Request $request)
     {
-        // $post = Post::find($request->animal);
-        return view('movies.review2');
+        $request->session()->put('img1', $request->animal);
+        $data = Img::where('category', 2)->get();
+        return view('movies.review2',
+    ['data' => $data]);
     }
     function match(Request $request)
     {
-        dd($request->fruit);
-        return view('movies.match');
+        $img1 = $request->session()->get('img1');
+        $request->session()->put('img2', $request->fruit);
+        $img2 = $request->session()->get('img2');
+        // dd($img1);
+        return view('movies.match',['img1' => $img1],['img2' => $img2]);
     }
+
+    function register()
+    {
+        return view('movies.register');
+    }
+
+    function email()
+    {
+        return view('movies.email');
+    }
+
+    function login()
+    {
+        return view('movies.login');
+    }
+
+    function reset()
+    {
+        // $token = "test";
+        // return view('movies.reset', ['token' => $token]);
+        return view('movies.reset');
+    }
+
+    function verify()
+    {
+        return view('movies.verify');
+    }
+
+    function confirm()
+    {
+    
+        return view('movies.confirm');
+    }
+
 }

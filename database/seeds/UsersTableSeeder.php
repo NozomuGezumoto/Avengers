@@ -19,8 +19,10 @@ class UsersTableSeeder extends Seeder
             'password' => bcrypt('testuser0123'),
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
-            'img' => 'oooo',
+            'picture_path' => 'oooo',
             'comment' => 'oooo'
         ]);
+
+           
     }
 }
