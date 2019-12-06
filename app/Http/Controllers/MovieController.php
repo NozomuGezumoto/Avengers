@@ -124,6 +124,7 @@ class MovieController extends Controller
         $result = json_decode($response->getBody()->getContents());
 
         $reviews = Review::with('user')->where('movie_id', $id)->get();
+        // dd($reviews);
 
         // $request->session()->put('movie_id', $request);
         // dd($request);

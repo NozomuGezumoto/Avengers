@@ -13,18 +13,20 @@ class ReviewsTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('reviews')->insert([//追加
 
-   
-            'user_id' => '1',
+
+        for ($i = 1; $i <= 5; $i++) {
+            DB::table('reviews')->insert([//追加
+            'user_id' => $i,
             'movie_id' => '330457',
             'comment' => 'aaaaaaa',
-            'animal_img_path' => 'images/animal.jpg',
-            'food_img_path' => 'images/animal5.jpg',
+            'animal_img_path' => 'images/animal'.$i.'.jpg',
+            'food_img_path' => 'images/fruit'.$i.'.jpg',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
 
             ]);
+        }
     // foreach ($avengers as $avenger) {
 
     //     DB::table('reviews')->insert([
@@ -37,5 +39,5 @@ class ReviewsTableSeeder extends Seeder
     //         'updated_at' => Carbon::now(),
     //     ]);
     // }
-}
+    }
 }
