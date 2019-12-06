@@ -180,15 +180,12 @@ class MovieController extends Controller
             [ 'query' => $params]// パラメーターがあれば設定
         );
         $result = json_decode($response->getBody()->getContents());
-        // dd($result);
 
         $img1 = $request->session()->get('img1');
         $request->session()->put('img2', $request->fruit);
         $img2 = $request->session()->get('img2');
 
         $user_id = Auth::user()->name;
-
-        // movie_idセッション
 
         return view('movies.match',[
             'img1' => $img1,
