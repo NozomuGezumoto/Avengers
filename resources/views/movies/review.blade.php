@@ -18,12 +18,12 @@
   </div>
   <div>
       @foreach ($reviews as $review)
-      {{-- usersテーブルからの投稿者情報 --}}
+      {{-- usersテーブルからの投稿者情報を持ってくる --}}
       <p>{{ $review->user->name }}</p>
       <p><img height="80px" src="{{ asset($review->user->picture_path) }}"></p>
       <p>{{ $review->user->comment }}</p>
 
-      {{-- reviewsテーブルからの投稿者情報 --}}
+      {{-- reviewsテーブルからの投稿者情報を持ってくる --}}
       <p>{{ $review->comment }}</p>
       <p><img height="80px" src="{{ asset($review->animal_img_path) }}"></p>
       <p><img height="80px" src="{{ asset($review->food_img_path)}}"></p>
