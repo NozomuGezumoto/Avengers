@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 use GuzzleHttp\Client;
 use App\Img;
 
+
+use App\Review;
+use App\User;
+
 class MovieController extends Controller
 {
     function index()
@@ -28,9 +32,9 @@ class MovieController extends Controller
 
         $results = json_decode($response->getBody()->getContents())->results;
 
-        // dd($results);
         // getBody()コンテンツを取得します。
         // getContents()〜の内容を全て文字列に読み込む
+
 
         return view('movies.index', [
             'new_movies' => $results
@@ -67,7 +71,8 @@ class MovieController extends Controller
 
         $results = json_decode($response->getBody()->getContents())->results;
 
-        // dd($results);
+
+
         // getBody()コンテンツを取得します。
         // getContents()〜の内容を全て文字列に読み込む
 
@@ -75,6 +80,9 @@ class MovieController extends Controller
         usort($results, function($a, $b) {
             return $a->release_date > $b->release_date ? -1 : 1;
         });
+
+        $request->session()->put('contact', $request->contact);
+        // dd($request);
 
         return view('movies.search', [
             'movies' => $results
@@ -88,6 +96,8 @@ class MovieController extends Controller
  // ❤アイコンを押して、フォロワーページに飛べるように。
     function hearticon()
     {
+        // $users = User::find(1)->reviews;
+        // dd($users);
         return view('movies.follower');
     }
 
@@ -113,10 +123,15 @@ class MovieController extends Controller
 
         $result = json_decode($response->getBody()->getContents());
 
-        // dd();
+        $reviews = Review::with('user')->where('movie_id', $id)->get();
+
+        // $request->session()->put('movie_id', $request);
+        // dd($request);
+
 
         return view('movies.review', [
-            'id' => $result
+            'id' => $result,
+            'reviews' => $reviews,
             // 'movies_title' => $response -> getBody()
             // $request
         ]);
