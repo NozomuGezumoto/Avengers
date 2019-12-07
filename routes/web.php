@@ -1,5 +1,4 @@
 <?php
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,4 +24,5 @@ Route::get('/Mypage', 'MovieController@Mypage')->name('movie.Mypage');
 Route::get('/review2', 'MovieController@review2')->name('movie.review2');
 Route::get('/match', 'MovieController@match')->name('movie.match');
 Route::get('/confirm', 'MovieController@confirm')->name('movie.confirm');
+Route::get('/confirm', 'MovieController@ranking')->name('movie.ranking');
 });

@@ -93,17 +93,6 @@ class MovieController extends Controller
     }
 
 
- // ❤アイコンを押して、フォロワーページに飛べるように。
-    function hearticon()
-    {
-        // $users = User::find(1)->reviews;
-        // dd($users);
-        return view('movies.follower');
-    }
-
-
-
-
     function review(int $id)
     {
         env('API_KEY');
@@ -198,6 +187,12 @@ class MovieController extends Controller
     {
     
         return view('movies.confirm');
+    }
+
+    function ranking()
+    {
+    
+        return view('movies.ranking');
     }
 
 }
