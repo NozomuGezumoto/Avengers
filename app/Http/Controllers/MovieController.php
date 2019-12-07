@@ -94,18 +94,14 @@ class MovieController extends Controller
     }
 
 
- // ❤アイコンを押して、フォロワーページに飛べるように。
-    function hearticon()
-    {
-        // $users = User::find(1)->reviews;
-        // dd($users);
-        return view('movies.follower');
-    }
+// touroku/ranking
+//     function review(int $id)
+// 下と被ってて、とりあえずコメントアウトしておきました。多分コッチ↑が要らないですかね？
 
 
 
 
-    function review(int $id,Request $request)
+    function review(int $id,Request $request
     {
         env('API_KEY');
         $client = new Client();
@@ -126,6 +122,7 @@ class MovieController extends Controller
 
         // User.php,Review.phpを１対多の関係で結びつけてmovie_idの情報をとってくる
         $reviews = Review::with('user')->where('movie_id', $id)->get();
+        // dd($reviews);
 
 
         // movie_idセッション
@@ -238,6 +235,12 @@ class MovieController extends Controller
         $review->food_img_path = $img2;
         $review->save();
         return view('movies.confirm');
+    }
+
+    function ranking()
+    {
+    
+        return view('movies.ranking');
     }
 
 }
