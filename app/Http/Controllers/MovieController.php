@@ -6,7 +6,8 @@ use Illuminate\Http\Request;
 use GuzzleHttp\Client;
 use App\Img;
 use Illuminate\Support\Facades\Auth;
-
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Collection;
 
 use App\Review;
 use App\User;
@@ -82,7 +83,7 @@ class MovieController extends Controller
             return $a->release_date > $b->release_date ? -1 : 1;
         });
 
-        $request->session()->put('contact', $request->contact);
+        // $request->session()->put('contact', $request->contact);
         // dd($request);
 
         return view('movies.search', [
@@ -97,9 +98,110 @@ class MovieController extends Controller
  // ❤アイコンを押して、フォロワーページに飛べるように。
     function hearticon()
     {
-        // $users = User::find(1)->reviews;
-        // dd($users);
-        return view('movies.follower');
+        $reviews = Review::all()->pluck('movie_id');
+        $flat = $reviews->toArray();
+        // dd($flat);//カウントできる形に変換
+
+        $counts = array_count_values($flat);
+        // dd($counts);//複数の投稿をまとめてカウント
+
+        $collection = collect($counts);
+        // dd($collection);collectでsortを使えるようにする
+
+        $sorted = $collection->sort()->all();
+        //dd($sorted);値(投稿数)を元に降順に表示
+        $value_key = array_keys($sorted);
+        //dd($value_key);値(投稿数)を0〜に変更・key=>値を反転
+        $maxkey = max(array_keys($value_key));
+        //dd($maxkey);keyの0〜の最大値を取得
+
+        foreach($value_key as $key => $value)
+        {
+            if($maxkey == $key)
+            {
+                $movie_key1 = $key;
+            }elseif($maxkey-1 == $key)
+            {
+                $movie_key2 = $key;
+            }elseif($maxkey-2 == $key)
+            {
+                $movie_key3 = $key;
+            }
+        }
+        foreach($value_key as $key => $value)
+        {
+            if($movie_key1 == $key)
+            {
+                $movie_id1 = $value;
+                env('API_KEY');
+                $client = new Client();
+                $url = 'https://api.themoviedb.org/3/movie/' . $movie_id1;
+                $params = [
+                    'api_key' => env('API_KEY'),
+                    'language' => 'ja-JP',
+                    'page' => 1,
+                    'include_adult' => false
+                ];
+                $response = $client->request(
+                    'GET',
+                    $url, // URLを設定
+                    [ 'query' => $params]// パラメーターがあれば設定
+                );
+
+                $result = json_decode($response->getBody()->getContents());
+
+                $ranking1 = $result;
+
+            }elseif($movie_key2 == $key)
+            {
+                $movie_id2 = $value;
+                env('API_KEY');
+                $client = new Client();
+                $url = 'https://api.themoviedb.org/3/movie/' . $movie_id2;
+                $params = [
+                    'api_key' => env('API_KEY'),
+                    'language' => 'ja-JP',
+                    'page' => 1,
+                    'include_adult' => false
+                ];
+                $response = $client->request(
+                    'GET',
+                    $url, // URLを設定
+                    [ 'query' => $params]// パラメーターがあれば設定
+                );
+
+                $result = json_decode($response->getBody()->getContents());
+                $ranking2 = $result;
+
+            }elseif($movie_key3 == $key)
+            {
+                $movie_id3 = $value;
+                env('API_KEY');
+                $client = new Client();
+                $url = 'https://api.themoviedb.org/3/movie/' . $movie_id3;
+                $params = [
+                    'api_key' => env('API_KEY'),
+                    'language' => 'ja-JP',
+                    'page' => 1,
+                    'include_adult' => false
+                ];
+                $response = $client->request(
+                    'GET',
+                    $url, // URLを設定
+                    [ 'query' => $params]// パラメーターがあれば設定
+                );
+
+                $result = json_decode($response->getBody()->getContents());
+                $ranking3 = $result;
+                // dd($ranking3);
+            }
+        }
+        return view('movies.follower', [
+            'ranking1' => $ranking1,
+            'ranking2' => $ranking2,
+            'ranking3' => $ranking3
+        ]);
+
     }
 
 
@@ -124,12 +226,15 @@ class MovieController extends Controller
 
         $result = json_decode($response->getBody()->getContents());
 
+
+
         // User.php,Review.phpを１対多の関係で結びつけてmovie_idの情報をとってくる
         $reviews = Review::with('user')->where('movie_id', $id)->get();
 
 
         // movie_idセッション
         $request->session()->put('movie_id', $id);
+        $request->session()->put('result', $result);
 
 
         return view('movies.review', [
@@ -149,10 +254,12 @@ class MovieController extends Controller
         return view('movies.exchange',
     ['data' => $data]);
     }
+
     function Mypage()
     {
         return view('movies.Mypage');
     }
+
     function review2(Request $request)
     {
         $request->session()->put('img1', $request->animal);
@@ -160,6 +267,7 @@ class MovieController extends Controller
         return view('movies.review2',
     ['data' => $data]);
     }
+
     function match(Request $request)
     {
         // movie_idのセッションを使う
