@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use GuzzleHttp\Client;
 use App\Img;
+use Illuminate\Support\Facades\Auth;
 
 
 use App\Review;
@@ -93,7 +94,14 @@ class MovieController extends Controller
     }
 
 
-    function review(int $id)
+// touroku/ranking
+//     function review(int $id)
+// 下と被ってて、とりあえずコメントアウトしておきました。多分コッチ↑が要らないですかね？
+
+
+
+
+    function review(int $id,Request $request
     {
         env('API_KEY');
         $client = new Client();
@@ -112,11 +120,13 @@ class MovieController extends Controller
 
         $result = json_decode($response->getBody()->getContents());
 
+        // User.php,Review.phpを１対多の関係で結びつけてmovie_idの情報をとってくる
         $reviews = Review::with('user')->where('movie_id', $id)->get();
         // dd($reviews);
 
-        // $request->session()->put('movie_id', $request);
-        // dd($request);
+
+        // movie_idセッション
+        $request->session()->put('movie_id', $id);
 
 
         return view('movies.review', [
@@ -149,11 +159,37 @@ class MovieController extends Controller
     }
     function match(Request $request)
     {
+        // movie_idのセッションを使う
+        $movie_id = $request->session()->get('movie_id');
+
+        env('API_KEY');
+        $client = new Client();
+        $url = 'https://api.themoviedb.org/3/movie/' . $movie_id;
+        $params = [
+            'api_key' => env('API_KEY'),
+            'language' => 'ja-JP',
+            'page' => 1,
+            'include_adult' => false
+        ];
+        $response = $client->request(
+            'GET',
+            $url, // URLを設定
+            [ 'query' => $params]// パラメーターがあれば設定
+        );
+        $result = json_decode($response->getBody()->getContents());
+
         $img1 = $request->session()->get('img1');
         $request->session()->put('img2', $request->fruit);
         $img2 = $request->session()->get('img2');
-        // dd($img1);
-        return view('movies.match',['img1' => $img1],['img2' => $img2]);
+
+        $user_id = Auth::user()->name;
+
+        return view('movies.match',[
+            'img1' => $img1,
+            'img2' => $img2,
+            'result' => $result,
+            'user_id' => $user_id
+        ]);
     }
 
     function register()
@@ -183,9 +219,21 @@ class MovieController extends Controller
         return view('movies.verify');
     }
 
-    function confirm()
+    function confirm(Request $request)
     {
-    
+        $user_id = Auth::user()->id;
+
+        $review = new Review;
+
+        $movie_id = $request->session()->get('movie_id');
+        $img1 = $request->session()->get('img1');
+        $img2 = $request->session()->get('img2');
+
+        $review->user_id = $user_id;
+        $review->movie_id = $movie_id;
+        $review->animal_img_path = $img1;
+        $review->food_img_path = $img2;
+        $review->save();
         return view('movies.confirm');
     }
 
