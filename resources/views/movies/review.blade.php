@@ -18,6 +18,20 @@
   </div>
   <div>
       @foreach ($reviews as $review)
+      {{-- いいね機能 --}}
+      <div class="mt-3 ml-3">
+          @if (Auth::check() && $review->likes->contains(function ($user) {
+            return $user->id === Auth::user()->id;
+          }))
+            {{-- ログインしている かつ この投稿にいいねしている場合 --}}
+            <i class="fas fa-heart fa-lg text-danger js-dislike"></i>
+          @else
+            {{-- いいねしていない場合 --}}
+            <i class="far fa-heart fa-lg text-danger js-like"></i>
+          @endif
+          <input type="hidden" class="review-id" value="{{ $review->id }}">
+          <span class="js-like-num">{{ $review->likes->count() }}</span>
+      </div>
       {{-- usersテーブルからの投稿者情報 --}}
       <p>{{ $review->user->name }}</p>
       <p><img height="80px" src="{{ asset($review->user->picture_path) }}"></p>

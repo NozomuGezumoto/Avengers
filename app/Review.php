@@ -14,4 +14,13 @@ class Review extends Model
         // １対多 の関係の１
         return $this->belongsTo(User::class);
     }
+
+    public function likes()
+    {
+        // reviewsテーブルとusersテーブルは、
+        // likesテーブルを介して多対多の関係です
+        return $this->belongsToMany('App\User', 'likes')
+            ->withTimestamps();
+    }
+
 }
