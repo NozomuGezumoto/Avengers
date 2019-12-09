@@ -1,5 +1,4 @@
 <?php
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -32,4 +31,4 @@ Route::post('review/{id}/like', 'MovieController@like')->name('review.like');
 Route::post('review/{id}/dislike', 'MovieController@dislike')->name('review.dislike');
 Route::get('like/{id}', 'MovieController@rankinglike')->name('ranking.like');
 // like nemo
-});
+
