@@ -25,4 +25,11 @@ Route::get('/Mypage', 'MovieController@Mypage')->name('movie.Mypage');
 Route::get('/review2', 'MovieController@review2')->name('movie.review2');
 Route::get('/match', 'MovieController@match')->name('movie.match');
 Route::get('/confirm', 'MovieController@confirm')->name('movie.confirm');
+
+
+// like nemo
+Route::post('review/{id}/like', 'MovieController@like')->name('review.like');
+Route::post('review/{id}/dislike', 'MovieController@dislike')->name('review.dislike');
+Route::get('like/{id}', 'MovieController@rankinglike')->name('ranking.like');
+// like nemo
 });
