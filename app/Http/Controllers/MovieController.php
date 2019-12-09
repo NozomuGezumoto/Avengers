@@ -91,14 +91,7 @@ class MovieController extends Controller
             'movies' => $results
             // 'movies_title' => $response -> getBody()
         ]);
-
-
     }
-
-
-
-
-
 
     function review(int $id,Request $request)
     {
@@ -257,6 +250,7 @@ class MovieController extends Controller
         return response()
             ->json(['success' => 'いいね完了！']);
     }
+
         // いいね解除が押された時の処理
     public function dislike(int $id)
     {
@@ -268,122 +262,108 @@ class MovieController extends Controller
         return response()
             ->json(['success' => 'いいね解除完了！']);
     }
+
     function ranking()
     {
-        $reviews = Review::all()->pluck('movie_id');
-        $flat = $reviews->toArray();
-        // dd($flat);//カウントできる形に変換
+        $ranking1 = null;
+        $ranking2 = null;
+        $ranking3 = null;
 
-        $counts = array_count_values($flat);
-        // dd($counts);//複数の投稿をまとめてカウント
+        $movies = DB::table('reviews')
+            ->select(DB::raw('count(*) as count, movie_id'))
+            ->groupBy('movie_id')
+            ->orderBy('count', 'desc')
+            ->get();
 
-        $collection = collect($counts);
-        // dd($collection);collectでsortを使えるようにする
-
-        $sorted = $collection->sort()->all();
-        //dd($sorted);値(投稿数)を元に降順に表示
-        $value_key = array_keys($sorted);
-        //dd($value_key);値(投稿数)を0〜に変更・key=>値を反転
-        $maxkey = max(array_keys($value_key));
-        //dd($maxkey);keyの0〜の最大値を取得
-
-        foreach($value_key as $key => $value)
-        {
-            if($maxkey == $key)
+            foreach ($movies as $movie)
             {
-                $movie_key1 = $key;
-            }elseif($maxkey-1 == $key)
-            {
-                $movie_key2 = $key;
-            }elseif($maxkey-2 == $key)
-            {
-                $movie_key3 = $key;
+                $movie_id[] = $movie->movie_id;
             }
-        }
-        foreach($value_key as $key => $value)
-        {
-            $ranking1 = null;
-            $ranking2 = null;
-            $ranking3 = null;
-            if($movie_key1 == $key)
+            foreach ($movie_id as $key => $value)
             {
-                $movie_id1 = $value;
-                env('API_KEY');
-                $client = new Client();
-                $url = 'https://api.themoviedb.org/3/movie/' . $movie_id1;
-                $params = [
-                    'api_key' => env('API_KEY'),
-                    'language' => 'ja-JP',
-                    'page' => 1,
-                    'include_adult' => false
-                ];
-                $response = $client->request(
-                    'GET',
-                    $url, // URLを設定
-                    [ 'query' => $params]// パラメーターがあれば設定
-                );
+                if($key == 0)
+                {
+                    env('API_KEY');
+                    $client = new Client();
+                    $url = 'https://api.themoviedb.org/3/movie/' . $value;
+                    $params = [
+                        'api_key' => env('API_KEY'),
+                        'language' => 'ja-JP',
+                        'page' => 1,
+                        'include_adult' => false
+                    ];
+                    $response = $client->request(
+                        'GET',
+                        $url, // URLを設定
+                        [ 'query' => $params]// パラメーターがあれば設定
+                    );
 
-                $result = json_decode($response->getBody()->getContents());
+                    $result = json_decode($response->getBody()->getContents());
 
-                $ranking1 = $result;
-
-            }elseif($movie_key2 == $key)
-            {
-                $movie_id2 = $value;
-                env('API_KEY');
-                $client = new Client();
-                $url = 'https://api.themoviedb.org/3/movie/' . $movie_id2;
-                $params = [
-                    'api_key' => env('API_KEY'),
-                    'language' => 'ja-JP',
-                    'page' => 1,
-                    'include_adult' => false
-                ];
-                $response = $client->request(
-                    'GET',
-                    $url, // URLを設定
-                    [ 'query' => $params]// パラメーターがあれば設定
-                );
-
-                $result = json_decode($response->getBody()->getContents());
-                $ranking2 = $result;
-
-            }elseif($movie_key3 == $key)
-            {
-                $movie_id3 = $value;
-                env('API_KEY');
-                $client = new Client();
-                $url = 'https://api.themoviedb.org/3/movie/' . $movie_id3;
-                $params = [
-                    'api_key' => env('API_KEY'),
-                    'language' => 'ja-JP',
-                    'page' => 1,
-                    'include_adult' => false
-                ];
-                $response = $client->request(
-                    'GET',
-                    $url, // URLを設定
-                    [ 'query' => $params]// パラメーターがあれば設定
-                );
-
-                $result = json_decode($response->getBody()->getContents());
-                $ranking3 = $result;
-                // dd($ranking3);
+                    $ranking1 = $result;
+                }
             }
-        }
+            foreach ($movie_id as $key =>$value)
+            {
+                if($key == 1)
+                {
+                    env('API_KEY');
+                    $client = new Client();
+                    $url = 'https://api.themoviedb.org/3/movie/' . $value;
+                    $params = [
+                        'api_key' => env('API_KEY'),
+                        'language' => 'ja-JP',
+                        'page' => 1,
+                        'include_adult' => false
+                    ];
+                    $response = $client->request(
+                        'GET',
+                        $url, // URLを設定
+                        [ 'query' => $params]// パラメーターがあれば設定
+                    );
+
+                    $result = json_decode($response->getBody()->getContents());
+                    $ranking2 = $result;
+
+                }
+            }
+            foreach ($movie_id as $key => $value)
+            {
+                if($key == 2)
+                {
+                    env('API_KEY');
+                    $client = new Client();
+                    $url = 'https://api.themoviedb.org/3/movie/' . $value;
+                    $params = [
+                        'api_key' => env('API_KEY'),
+                        'language' => 'ja-JP',
+                        'page' => 1,
+                        'include_adult' => false
+                    ];
+                    $response = $client->request(
+                        'GET',
+                        $url, // URLを設定
+                        [ 'query' => $params]// パラメーターがあれば設定
+                    );
+
+                    $result = json_decode($response->getBody()->getContents());
+                    $ranking3 = $result;
+                }
+            }
+            // dd($ranking1);
         return view('movies.ranking', [
             'ranking1' => $ranking1,
             'ranking2' => $ranking2,
-            'ranking3' => $ranking3
+            'ranking3' => $ranking3,
         ]);
-
     }
+
     public function rankinglike(int $id)
     {
         // $reviews = Review::all()->pluck('movie_id');
         // $flat = $reviews->toArray();
         // $reviews = Review::with('likes')->where('movie_id', $id)->orderBy('id', 'desc')->get();
- 
+
         $i = 0;
         $array1 = array();
         $reviews = Review::with('likes')->where('movie_id' ,$id)->pluck('id');
@@ -399,10 +379,19 @@ class MovieController extends Controller
 
         $counts = array_count_values($str);
 
-        // $a = collect($counts);
 
-        $b = arsort($counts);
-        // dd($b);
+        $i = $counts->sortBy($key);
+
+        dd($i);
+
+
+
+
+        $rankings = DB::table('reviews')
+                        ->select("reviews.*", DB::raw('COUNT(likes.*) as likesCount'))
+                        ->join("likes", "reviews.id", "=", "likes.review_id")
+                        ->groupBy("likes.reviews_id")
+                        ->get();
 
 
 
