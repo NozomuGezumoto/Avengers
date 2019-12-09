@@ -4,6 +4,8 @@
 
 @section('content')
 
+<div class="square">
 
+</div>
 
 @endsection

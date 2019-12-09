@@ -26,13 +26,17 @@
 
 
     <title>@yield('title')</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Baskervville|Dancing+Script&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
       <div class="row">
+        <div class="album">
         <img class="main" src="{{asset('images/animal.jpg')}}">
-        <img class="main_2" src="{{asset('images/fruit.jpg')}}">
-        <h1 class="title">Movie Translator</h1>
+        <img class="main_2" src="{{asset('images/fruit_title.png')}}">
+        </div>
+        <h1 class="title">Movie Exchanger</h1>
       </div>
     </header>
  @yield('content')
