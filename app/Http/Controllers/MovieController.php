@@ -360,43 +360,66 @@ class MovieController extends Controller
 
     public function rankinglike(int $id)
     {
-        // $reviews = Review::all()->pluck('movie_id');
-        // $flat = $reviews->toArray();
-        // $reviews = Review::with('likes')->where('movie_id', $id)->orderBy('id', 'desc')->get();
+        $rankinglike1 = null;
+        $rankinglike2 = null;
+        $rankinglike3 = null;
 
-        $i = 0;
-        $array1 = array();
         $reviews = Review::with('likes')->where('movie_id' ,$id)->pluck('id');
         foreach($reviews as $key => $value)
         {
             $likes = Like::with('review')->where('review_id' ,$value)->get();
             $array1[] = $likes;
-            $count1[] = count($likes);
             $array2[] =$likes->pluck('review_id');
 
         }
+
         $str = array_flatten($array2);
 
         $counts = array_count_values($str);
 
+        $collection = collect($counts);
 
-        $i = $counts->sortBy($key);
+        $sorted = $collection->sort();
 
-        dd($i);
+        $reversed = $sorted->reverse();
 
+        $a = $reversed->toArray();
 
+        $b = array_keys($a);
 
+        foreach ($b as $key => $value)
+        {
+            if($key == 0)
+            {
+                $rankinglike1 = Review::with('user')->where('id', $value)->get();
+            }
+        }
+        foreach ($b as $key => $value)
+        {
+            if($key == 1)
+            {
+                $rankinglike2 = Review::with('user')->where('id', $value)->get();
+            }
+        }
+        foreach ($b as $key => $value)
+        {
+            if($key == 2)
+            {
+                $rankinglike3 = Review::with('user','likes')->where('id', $value)->get();
+            }
+        }
 
-        $rankings = DB::table('reviews')
-                        ->select("reviews.*", DB::raw('COUNT(likes.*) as likesCount'))
-                        ->join("likes", "reviews.id", "=", "likes.review_id")
-                        ->groupBy("likes.reviews_id")
-                        ->get();
-
-
-
+        // dd($rankinglike3);
+        // $rankings = DB::table('reviews')
+        //                 ->select("reviews.*", DB::raw('COUNT(likes.*) as likesCount'))
+        //                 ->join("likes", "reviews.id", "=", "likes.review_id")
+        //                 ->groupBy("likes.reviews_id")
+        //                 ->get();
 
         return view('movies.rankinglike',[
+            'rankinglike1' => $rankinglike1,
+            'rankinglike2' => $rankinglike2,
+            'rankinglike3' => $rankinglike3,
         ]);
     }
 
