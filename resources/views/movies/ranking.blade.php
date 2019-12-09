@@ -3,24 +3,16 @@
 @section('title', 'ホーム')
 
 @section('content')
-
-  {{-- とりあえずDBからreviewの一覧を取って来る --}}
-
-
-  @foreach($reviews as $review)
-  <div class="m-4 p-4 border border-primary">
-
-   <p>{{$review->id}}</p>
-   <p>{{$review->user_id}}</p>
-   <p>{{$review->movie_id}}</p>
-   <p>{{$review->animal_img_path}}</p>
-   <p>{{$review->fruit_img_path}}</p>
-   <p>{{$review->created_at}}</p>
+  <div class="match_con">
+      <div class="row">
+          <a href="{{ route('ranking.like', ['id' => $ranking1->id]) }}">
+              <img name="movie_id" class="review_img" src="https://image.tmdb.org/t/p/w300_and_h450_bestv2/{{$ranking1->poster_path}}" value="$result->poster_path">
+              <img name="movie_id" class="review_img" src="https://image.tmdb.org/t/p/w300_and_h450_bestv2/{{$ranking2->poster_path}}" value="$result->poster_path">
+              <img name="movie_id" class="review_img" src="https://image.tmdb.org/t/p/w300_and_h450_bestv2/{{$ranking3->poster_path}}" value="$result->poster_path">
+          </a>
+      </div>
   </div>
-
-   @endforeach
-
-@endsection
+  @endsection
 
 
 

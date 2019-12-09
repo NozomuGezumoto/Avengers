@@ -17,7 +17,7 @@ Route::get('/', 'MovieController@index')->name('movie.index');
 //ログイン
 Route::get('/search1', 'MovieController@search')->name('movie.search');
 Route::get('/search', 'MovieController@searchicon')->name('movie.searchicon');
-Route::get('/heart', 'MovieController@hearticon')->name('movie.hearticon');
+Route::get('/ranking', 'MovieController@ranking')->name('movie.ranking');
 Route::get('/review/{id}', 'MovieController@review')->name('movie.review');
 Route::get('/exchange', 'MovieController@exchange')->name('movie.exchange');
 Route::get('/Mypage', 'MovieController@Mypage')->name('movie.Mypage');
@@ -31,4 +31,4 @@ Route::post('review/{id}/like', 'MovieController@like')->name('review.like');
 Route::post('review/{id}/dislike', 'MovieController@dislike')->name('review.dislike');
 Route::get('like/{id}', 'MovieController@rankinglike')->name('ranking.like');
 // like nemo
-
+});
