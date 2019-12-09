@@ -18,15 +18,19 @@
   </div>
   <div>
       @foreach ($reviews as $review)
+        <div class="col-10 list">
+          <div class="row">
       {{-- usersテーブルからの投稿者情報 --}}
-      <p>{{ $review->user->name }}</p>
-      <p><img height="80px" src="{{ asset($review->user->picture_path) }}"></p>
-      <p>{{ $review->user->comment }}</p>
+          {{-- <p>{{ $review->user->name }}</p> --}}
+          <p><img class="list_u" height="50px" src="{{ asset($review->user->picture_path) }}"></p>
+          {{-- <p>{{ $review->user->comment }}</p> --}}
 
       {{-- reviewsテーブルからの投稿者情報 --}}
-      <p>{{ $review->comment }}</p>
-      <p><img height="80px" src="{{ asset($review->animal_img_path) }}"></p>
-      <p><img height="80px" src="{{ asset($review->food_img_path)}}"></p>
+          {{-- <p>{{ $review->comment }}</p> --}}
+          <p><img height="80px" src="{{ asset($review->animal_img_path) }}"></p>
+          <p><img height="80px" src="{{ asset($review->food_img_path)}}"></p>
+        </div>
+      </div>
       @endforeach
   </div>
 

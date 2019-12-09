@@ -210,20 +210,53 @@ body {
 .match_con{
   display: flex;
   text-align: center;
-  margin-left: 20px;
+  margin-left: 120px;
 }
 
 .match1 {
   margin-top: 100px;
-  width: 200px;
+  width: 100px;
   height: 200px;
+  object-fit: cover;
 }
 .match2 {
   margin-top: 100px;
-  width: 200px;
+  width: 100px;
   height: 200px;
+  object-fit: cover;
 }
 
 .btn_match{
   margin-top: 70px;
+}
+
+.list{
+  padding: 5px;
+  /* text-align: center; */
+  margin-left: 25px;
+  /* background-color: rgb(218, 197, 230); */
+  border-radius: 5px;
+}
+.list_u{
+  border-radius: 50%;
+  margin-right: 25px;
+}
+/* test */
+.square {
+  width:200px;
+  height:200px;
+  overflow:hidden;
+}
+.square:before {
+  content:"";
+  display:block;
+  width:70%;
+  height:70%;
+  background-image: url(http://lorempixel.com/output/nature-q-c-200-200-6.jpg);
+  /* transform: rotate(-45deg); */
+  transform-origin:0 0;
+  /* -ms-transform: rotate(-45deg); */
+  -ms-transform-origin:0 0;
+  /* -webkit-transform: rotate(-45deg); */
+  -webkit-transform-origin:0 0;
 }
