@@ -302,6 +302,9 @@ class MovieController extends Controller
         }
         foreach($value_key as $key => $value)
         {
+            $ranking1 = null;
+            $ranking2 = null;
+            $ranking3 = null;
             if($movie_key1 == $key)
             {
                 $movie_id1 = $value;
@@ -399,10 +402,10 @@ class MovieController extends Controller
         // $a = collect($counts);
 
         $b = arsort($counts);
-
-
-
         // dd($b);
+
+
+
 
         return view('movies.rankinglike',[
         ]);
