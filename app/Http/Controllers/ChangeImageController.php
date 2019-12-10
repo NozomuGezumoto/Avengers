@@ -25,11 +25,11 @@ class ChangeImageController extends Controller
 
     private function saveProfileImage($image)
  {
-     // デフォルトではstorage/appに画像が保存されます。 
-     // 第2引数にpublicをつけることで、storage/app/publicに保存されます。 
+     // デフォルトではstorage/appに画像が保存されます。
+     // 第2引数にpublicをつけることで、storage/app/publicに保存されます。
      // 今回は、/images/profilePictureをつけて、
      // storage/app/public/images/profilePictureに画像が保存されるようにしています。
-     // 自分で指定しない場合、ファイル名は自動で設定されます。  
+     // 自分で指定しない場合、ファイル名は自動で設定されます。
      $imgPath = $image->store('images/profilePicture', 'public');
 
     return 'storage/' . $imgPath;

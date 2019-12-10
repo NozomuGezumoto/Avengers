@@ -40,11 +40,11 @@
 
 
                         <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary1">
+                            <div class="return col-md-6 offset-md-3">
+                                <button action="{{ route('movie.Mypage') }}" class="btn1">
                                     {{ __('戻る') }}
                                 </button>
-                                <button type="submit" class="btn btn-primary2" id="button">
+                                <button type="submit" class="btn2" id="button">
                                     {{ __('再登録') }}
                                 </button>
                             </div>

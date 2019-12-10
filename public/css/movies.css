@@ -327,6 +327,15 @@ display: flex;
   text-align: center;
 }
 
-.btn btn-primary2{
-  color: aqua;
+.return{
+  margin-left: 15px;
+  padding: auto;
+}
+
+/* .btn1{
+  background-color: rgb(79, 117, 117);
+} */
+
+.btn2{
+  background-color: rgb(167, 180, 94);
 }
