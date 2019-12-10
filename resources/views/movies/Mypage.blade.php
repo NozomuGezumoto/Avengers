@@ -65,12 +65,13 @@
   <h3>プロフィール</h3>
 
 
+
 {{-- イメージ画像表示 --}}
-    <li class="nav-item">
+<a href="{!! action('MovieController@ChangeImage') !!}">
+    <div class="nav-item" style="text-align:center" button>
         <img height="80px" src="{{ asset(Auth::user()->picture_path) }}" >
-    </li>
-
-
+    </div>
+</a>
 
 <div style="margin-top: 30px;">
    
