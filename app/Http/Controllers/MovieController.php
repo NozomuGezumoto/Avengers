@@ -126,10 +126,12 @@ class MovieController extends Controller
     {
         return view('movies.exchange');
     }
+
     function Mypage()
     {
         return view('movies.Mypage');
     }
+
     function review2(Request $request)
     {
         // $post = Post::find($request->animal);
@@ -166,6 +168,11 @@ class MovieController extends Controller
     function verify()
     {
         return view('movies.verify');
+    }
+
+    function ChangeImage()
+    {
+        return view('movies.ChangeImage');
     }
 
 }
