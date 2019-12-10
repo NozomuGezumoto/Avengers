@@ -216,3 +216,17 @@ function changeLikeBtn(btn) {
 	btn.toggleClass('js-like').toggleClass('js-dislike');
 }
 // 根本
+
+// Ryosuke
+// プロフィールの画像再登録時のボタン機能
+$(function() {
+	$('#button').attr('disabled','disabled');
+
+	$('#picture').change(function() {
+		if( $(this).prop('changed') == false ) {
+			$('#button').attr('disabled','disabled');
+		} else {
+			$('#button').removeAttr('disabled');
+		}
+	});
+});

@@ -326,3 +326,7 @@ display: flex;
   width: 90%;
   text-align: center;
 }
+
+.btn btn-primary2{
+  color: aqua;
+}

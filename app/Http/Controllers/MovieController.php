@@ -241,6 +241,8 @@ class MovieController extends Controller
         $review->save();
         return view('movies.confirm');
     }
+}
+
 
 
      // いいねが押された時の処理
