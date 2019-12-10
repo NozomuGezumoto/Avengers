@@ -16,14 +16,12 @@
       </form>
     </div>
   </div>
-  <div>
+  <div class="row review_list">
       @foreach ($reviews as $review)
-
-        <div class="col-10 list">
-          <div class="row">
-
+<div class="col-sm-6">
+  <div class="row">
       {{-- いいね機能 --}}
-      <div class="mt-3 ml-3">
+      {{-- <div class=""> --}}
           @if (Auth::check() && $review->likes->contains(function ($user) {
             return $user->id === Auth::user()->id;
           }))
@@ -35,20 +33,22 @@
           @endif
           <input type="hidden" class="review-id" value="{{ $review->id }}">
           <span class="js-like-num">{{ $review->likes->count() }}</span>
-      </div>
-
+      {{-- </div> --}}
       {{-- usersテーブルからの投稿者情報 --}}
           {{-- <p>{{ $review->user->name }}</p> --}}
-          <p><img class="list_u" height="50px" src="{{ asset($review->user->picture_path) }}"></p>
+      {{-- <div class=""> --}}
+        <p><img class="list_u" height="100px" src="{{ asset($review->user->picture_path) }}"></p>
+      {{-- </div> --}}
           {{-- <p>{{ $review->user->comment }}</p> --}}
 
       {{-- reviewsテーブルからの投稿者情報 --}}
           {{-- <p>{{ $review->comment }}</p> --}}
-          <p><img height="80px" src="{{ asset($review->animal_img_path) }}"></p>
-          <p><img height="80px" src="{{ asset($review->food_img_path)}}"></p>
+          {{-- <div> --}}
+           <p ><img width="100" height="200px" src="{{ asset($review->animal_img_path) }}"></p>
+           <p><img width="100" height="200px" src="{{ asset($review->food_img_path)}}"></p>
+          {{-- </div> --}}
         </div>
       </div>
       @endforeach
-  </div>
-
+    </div>
   @endsection

@@ -44,7 +44,7 @@
    <div class="footer">
       <a href="{!! action('MovieController@index') !!}"><i class="fas fa-home icons"></i></a>
       <a href="{!! action('MovieController@searchicon') !!}"><i class="fas fa-search icons"></i></a>
-      <a href="{!! action('MovieController@ranking') !!}"><i class="far fa-heart icons"></i></a>
+      <a href="{!! action('MovieController@ranking') !!}"><i class="fas fa-list-ol icons"></i></a>
 
 
 

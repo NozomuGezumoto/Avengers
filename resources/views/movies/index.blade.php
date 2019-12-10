@@ -6,18 +6,22 @@
 @section('content')
 
 
-<div class="container_serch">
-  <div class="row">
-    <div class="col-sm-6 movies">
-      <form action="{{ route('movie.search') }}" method="get">
-        <input type="text" class="form-control" name="movie_title" id="movie_title" placeholder="映画のタイトル">
+{{-- <div class="col-sm-5 movies"> --}}
+  <form action="{{ route('movie.search') }}" method="get">
+    <div class="container_serch">
+      <div class="row search-bar">
+        <div class="input-group">
+        <input type="text" class="form-control" name="movie_title" placeholder="映画のタイトル">
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary" type="submit"><i class="fas fa-search"></i></button>
+        </div>
+        </div>
+      </div>
     </div>
-    <div class="col-sm-3">
-      <button type="submit" class="btn btn-primary">Submit</button>
-    </div>
+
       </form>
-  </div>
-</div>
+    {{-- </div> --}}
+
 <div class="container_img">
     <div class="row">
       @foreach ($new_movies as $new_movie)

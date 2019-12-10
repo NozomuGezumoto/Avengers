@@ -76,9 +76,14 @@ h1 {
   font-family: 'Dancing Script', cursive;
   font-family: 'Baskervville', serif;
   text-shadow: 2px 2px 2px rgb(22, 22, 22);
+  letter-spacing: 1px;
+}
+
+row{
+  display: flex;
+  flex-wrap: wrap;
 }
 footer {
-  /* background-image: url("../images/fruit.jpg"); */
   width: 100%;
   text-align: center;
   position: fixed;
@@ -89,25 +94,29 @@ footer {
 
 .footer {
   padding-top: 10px;
-  border-top: solid 1px rgba(99, 99, 99, 0.673);
+  /* border-top: solid 1px rgba(99, 99, 99, 0.673); */
   display: flex;
   justify-content: space-around;
-}
-.footer{
-  background-color: rgb(236, 231, 225);
-  opacity: 0.9;
+  /* background-color: rgb(223, 220, 217);å */
+  /* opacity: 0.8; */
+  /* background-image: url("../images/footer.png"); */
 }
 
 .icons {
-  /* margin-left: 10px; */
   text-align: center;
   font-size: 40px;
 }
+
 /* start.index */
 .container_serch{
+  /* text-align: center; */
   margin-top: 10px;
   display: flex;
   justify-content: center;
+  /* margin-left: 15px; */
+  /* justify-content: center; */
+  /* margin-right: 100px; */
+  /* max-width: 100px; */
 }
 
 .row{
@@ -117,8 +126,14 @@ footer {
 }
 
 button{
-  text-align: center;
+  /* text-align: center; */
 }
+#btnindex{
+  width: 80px;
+  margin-top: 10px;
+  outline: olive;
+}
+
 .rounded-sm{
   display: flex;
   justify-content: space-between;
@@ -127,9 +142,11 @@ button{
 }
 
 .container_serch{
+  /* display: flex; */
+  /* text-align: center;
   padding-top: 10px;
-  padding-left: 10px;
-  margin: auto;
+  padding-left: 10px; */
+  /* margin: auto; */
 }
 .container_img{
   /* margin: 10px; */
@@ -225,6 +242,7 @@ body {
   height: 100px;
   width: 160px;
   border: solid 1px blanchedalmond;
+  object-fit: cover;
 }
 .img{
   height: 160px;
@@ -244,6 +262,7 @@ body {
 {
   text-align: center;
   margin-bottom: 50px;
+  object-fit: cover;
 }
 .title_img{
   margin: 5px;
@@ -262,55 +281,48 @@ body {
 
 /* match */
 .match_con{
-  display: flex;
+  /* display: flex;
+  /* justify-content: space-between; */
+  /* text-align: center;
+  margin-left: 120px;  */
+  margin-top: 20px;
   text-align: center;
-  margin-left: 120px;
+  margin-left: 20px;
 }
 
 .match1 {
-  margin-top: 100px;
+  margin-top: 50px;
   width: 100px;
   height: 200px;
   object-fit: cover;
 }
 .match2 {
-  margin-top: 100px;
+  margin-top: 50px;
   width: 100px;
   height: 200px;
   object-fit: cover;
 }
 
 .btn_match{
-  margin-top: 70px;
+  margin-top: 30px;
+  margin-bottom: 50px;
 }
 
-.list{
-  padding: 5px;
-  /* text-align: center; */
-  margin-left: 25px;
-  /* background-color: rgb(218, 197, 230); */
-  border-radius: 5px;
+.review_list{
+  margin-top: 20px;
+  margin-left: 5px;
 }
-.list_u{
-  border-radius: 50%;
-  margin-right: 25px;
+.conteiner_review1{
+width: 50%;
+display: flex;
 }
-/* test */
-.square {
-  width:200px;
-  height:200px;
-  overflow:hidden;
+/* confirm */
+.confirm{
+  text-align: center;
+  margin-top: 250px;
 }
-.square:before {
-  content:"";
-  display:block;
-  width:70%;
-  height:70%;
-  background-image: url(http://lorempixel.com/output/nature-q-c-200-200-6.jpg);
-  /* transform: rotate(-45deg); */
-  transform-origin:0 0;
-  /* -ms-transform: rotate(-45deg); */
-  -ms-transform-origin:0 0;
-  /* -webkit-transform: rotate(-45deg); */
-  -webkit-transform-origin:0 0;
+
+.search-bar {
+  width: 90%;
+  text-align: center;
 }
