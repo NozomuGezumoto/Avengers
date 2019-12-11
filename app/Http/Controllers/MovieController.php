@@ -246,7 +246,8 @@ class MovieController extends Controller
 
 
      // いいねが押された時の処理
-    public function like(int $id)
+    // public 
+    function like(int $id)
     {
         $review = Review::where('id', $id)->with('likes')->first();
 
@@ -259,7 +260,8 @@ class MovieController extends Controller
     }
 
         // いいね解除が押された時の処理
-    public function dislike(int $id)
+    // public 
+    function dislike(int $id)
     {
         // いいね解除された投稿の取得
         $review = Review::find($id);
@@ -365,7 +367,8 @@ class MovieController extends Controller
         ]);
     }
 
-    public function rankinglike(int $id)
+    // public 
+    function rankinglike(int $id)
     {
         $rankinglike1 = null;
         $rankinglike2 = null;
@@ -430,4 +433,4 @@ class MovieController extends Controller
         ]);
     }
 
-}
+// }
