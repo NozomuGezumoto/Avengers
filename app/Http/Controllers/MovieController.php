@@ -219,6 +219,11 @@ class MovieController extends Controller
         return view('movies.verify');
     }
 
+
+    function ChangeImage()
+    {
+        return view('movies.ChangeImage');
+
     function confirm(Request $request)
     {
         $user_id = Auth::user()->id;

@@ -48,6 +48,7 @@
 
 
 
+
       {{-- マイページへのリンク --}}
       {{-- <a href="{!! action('MovieController@Mypage') !!}">
         <i class="far fa-user icons">
