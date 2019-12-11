@@ -241,7 +241,7 @@ class MovieController extends Controller
         $review->save();
         return view('movies.confirm');
     }
-}
+
 
 
 
