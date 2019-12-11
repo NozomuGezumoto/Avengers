@@ -7,20 +7,23 @@
 
 
 {{-- <div class="col-sm-5 movies"> --}}
-  <form action="{{ route('movie.search') }}" method="get">
-    <div class="container_serch">
-      <div class="row search-bar">
-        <div class="input-group">
-        <input type="text" class="form-control" name="movie_title" placeholder="映画のタイトル">
-        <div class="input-group-append">
-          <button class="btn btn-outline-secondary" type="submit"><i class="fas fa-search"></i></button>
-        </div>
-        </div>
-      </div>
-    </div>
-
-      </form>
-    {{-- </div> --}}
+  {{-- <div class="container_serch">
+    <div class="row"> --}}
+        <form action="{{ route('movie.search') }}" method="get">
+            <div class="container_serch">
+              <div class="row search-bar">
+                <div class="input-group">
+                <input type="text" class="form-control" name="movie_title" placeholder="映画のタイトル">
+                <div class="input-group-append">
+                  <button class="btn btn-outline-secondary" type="submit"><i class="fas fa-search"></i></button>
+                </div>
+                </div>
+              </div>
+            </div>
+        
+        </form>
+    {{-- </div>
+  </div> --}}
 
 <div class="container_img">
     <div class="row">
