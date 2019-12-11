@@ -41,7 +41,9 @@
 
                         <div class="form-group row mb-0">
                             <div class="return col-md-6 offset-md-3">
-                                <button action="{{ route('movie.Mypage') }}" class="btn1">
+                                <button 
+                                type="button" onclick="history.back()"
+                                class="btn1">
                                     {{ __('戻る') }}
                                 </button>
                                 <button type="submit" class="btn2" id="button">
