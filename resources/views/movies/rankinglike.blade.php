@@ -3,6 +3,13 @@
 @section('title', 'ホーム')
 
 @section('content')
+<div class="conteiner">
+    <div class="row">
+      <div class="col-6 rank_text">
+        <h2>REVIEW RANKING</h2>
+      </div>
+    </div>
+  </div>
 
 <div class="match_con like">
     <div class="conteiner list">

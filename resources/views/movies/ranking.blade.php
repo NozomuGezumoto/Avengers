@@ -6,7 +6,7 @@
 <div class="conteiner">
   <div class="row">
     <div class="col-6 rank_text">
-      <h2>RANKING</h2>
+      <h2>MOVIE RANKING</h2>
     </div>
   </div>
 </div>

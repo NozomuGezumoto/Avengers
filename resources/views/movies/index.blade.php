@@ -13,7 +13,7 @@
             <div class="container_serch">
               <div class="row search-bar">
                 <div class="input-group">
-                <input type="text" class="form-control" name="movie_title" placeholder="映画のタイトル">
+                <input type="text" class="form-control" name="movie_title" placeholder="映画のタイトル" required>
                 <div class="input-group-append">
                   <button class="btn btn-outline-secondary" type="submit"><i class="fas fa-search"></i></button>
                 </div>
