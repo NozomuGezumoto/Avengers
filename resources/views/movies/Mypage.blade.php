@@ -1,4 +1,3 @@
-<!-- layout.blade.phpを読み込む -->
 @extends('layout')
 
 @section('title', 'マイページ')
@@ -8,7 +7,6 @@
 {{-- へッターの中に一時的にログイン・ログアウトできる機能をつける app.blade.php--}}
     <header>
       <div class="row">
-            <h1 class="title">Movie Translator</h1>
             <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
         <div class="container">
             <a class="navbar-brand" href="{{ url('/') }}">
