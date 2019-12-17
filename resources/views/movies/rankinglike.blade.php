@@ -15,6 +15,7 @@
     <div class="conteiner list">
         <div class="row ranks">
             <div class="col-12 list ranking_list">
+              @if ($rankinglike1 !== null)
               @isset($rankinglike1)
                 @foreach ($rankinglike1 as $review)
                         <i class="fas fa-heart fa-lg text-danger js-dislike"></i>
@@ -25,12 +26,16 @@
                         <p><img width="100" height="200px" src="{{ asset($review->food_img_path)}}"></p>
                 @endforeach
               @endisset
+              @else
+              <div>いいねをしよう！！</div>
+              @endif
             </div>
 
 
 
 
             <div class="col-12 list ranking_list">
+              @if ($rankinglike2 !== null)
               @isset($rankinglike2)
                 @foreach ($rankinglike2 as $review)
                         <i class="fas fa-heart fa-lg text-danger js-dislike"></i>
@@ -41,11 +46,15 @@
                         <p><img width="100" height="200px" src="{{ asset($review->food_img_path)}}"></p>
                 @endforeach
               @endisset
+              @else
+              <div>いいねをしよう！！</div>
+              @endif
             </div>
 
 
 
             <div class="col-12 list ranking_list">
+             @if ($rankinglike2 !== null)
              @isset($rankinglike3)
                 @foreach ($rankinglike3 as $review)
                         <i class="fas fa-heart fa-lg text-danger js-dislike"></i>
@@ -54,8 +63,11 @@
                         <p><img class="list_u" height="200px" src="{{ asset($review->user->picture_path) }}"></p>
                         <p><img width="100" height="200px" src="{{ asset($review->animal_img_path) }}"></p>
                         <p><img width="100" height="200px" src="{{ asset($review->food_img_path)}}"></p>
-                        @endforeach
-                        @endisset
+                @endforeach
+              @endisset
+              @else
+              <div>いいねをしよう！！</div>
+              @endif
             </div>
        </div>
   </div>
