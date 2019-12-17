@@ -90,22 +90,16 @@
                                     <th class="fas fa-address-card">
                                     {{ Auth::user()->name }}
                                     </th>
-                                    <td>
-                                    </td>
                                 </tr>
                                 <tr>
                                     <th class="fas fa-envelope">
                                     {{ Auth::user()->email }}
                                     </th>
-                                    <td>
-                                    </td>
                                 </tr>
                                 <tr>
                                     <th class="fas fa-comment-dots">
                                     {{ Auth::user()->comment }}
                                     </th>
-                                    <td>
-                                    </td>
                                 </tr>
                                 <tr>
                                     <th>
