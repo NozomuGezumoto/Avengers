@@ -14,7 +14,7 @@
 <div class="match_con like">
     <div class="conteiner list">
         <div class="row ranks">
-            <div class="col-12 list ranking_list">
+            <div class="col-sm-6 list ranking_list">
               @isset($rankinglike1)
                 @foreach ($rankinglike1 as $review)
                         <i class="fas fa-heart fa-lg text-danger js-dislike"></i>
