@@ -4,6 +4,8 @@
 
 @section('content')
 
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
 <header>
 </header>
 
@@ -85,8 +87,13 @@
                         <div style="margin-top: 30px;">
                             <table class="table table-striped">
                                 <tr>
-                                    <th>{{ __('氏名') }}</th>
-                                    <td>{{ Auth::user()->name }}</td>
+
+
+                                        <i class="fas fa-address-card fa-2x">
+
+                                    {{ Auth::user()->name }}
+                                </i>
+
                                 </tr>
                                 <tr>
                                     <th>{{ __('アドレス') }}</th>
