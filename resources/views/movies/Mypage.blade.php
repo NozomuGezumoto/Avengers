@@ -87,17 +87,17 @@
                         <div style="margin-top: 30px;">
                             <table class="table table-striped">
                                 <tr>
-                                    <th class="fas fa-address-card">
+                                    <th class="fas fa-address-card" style="word-break:break-all;">
                                     {{ Auth::user()->name }}
                                     </th>
                                 </tr>
                                 <tr>
-                                    <th class="fas fa-envelope">
+                                    <th class="fas fa-envelope" style="word-break:break-all;">
                                     {{ Auth::user()->email }}
                                     </th>
                                 </tr>
                                 <tr>
-                                    <th class="fas fa-comment-dots">
+                                    <th class="fas fa-comment-dots" style="word-break:break-all;">
                                     {{ Auth::user()->comment }}
                                     </th>
                                 </tr>
