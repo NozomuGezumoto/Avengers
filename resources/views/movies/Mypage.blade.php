@@ -87,21 +87,25 @@
                         <div style="margin-top: 30px;">
                             <table class="table table-striped">
                                 <tr>
-
-
-                                        <i class="fas fa-address-card fa-2x">
-
+                                    <th class="fas fa-address-card">
                                     {{ Auth::user()->name }}
-                                </i>
-
+                                    </th>
+                                    <td>
+                                    </td>
                                 </tr>
                                 <tr>
-                                    <th>{{ __('アドレス') }}</th>
-                                    <td>{{ Auth::user()->email }}</td>
+                                    <th class="fas fa-envelope">
+                                    {{ Auth::user()->email }}
+                                    </th>
+                                    <td>
+                                    </td>
                                 </tr>
                                 <tr>
-                                    <th>{{ __('コメント') }}</th>
-                                    <td>{{ Auth::user()->comment }}</td>
+                                    <th class="fas fa-comment-dots">
+                                    {{ Auth::user()->comment }}
+                                    </th>
+                                    <td>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <th>
