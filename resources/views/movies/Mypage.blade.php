@@ -4,6 +4,8 @@
 
 @section('content')
 
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
 <header>
 </header>
 
@@ -85,16 +87,19 @@
                         <div style="margin-top: 30px;">
                             <table class="table table-striped">
                                 <tr>
-                                    <th>{{ __('氏名') }}</th>
-                                    <td>{{ Auth::user()->name }}</td>
+                                    <th class="fas fa-address-card" style="word-break:break-all;">
+                                    {{ Auth::user()->name }}
+                                    </th>
                                 </tr>
                                 <tr>
-                                    <th>{{ __('アドレス') }}</th>
-                                    <td>{{ Auth::user()->email }}</td>
+                                    <th class="fas fa-envelope" style="word-break:break-all;">
+                                    {{ Auth::user()->email }}
+                                    </th>
                                 </tr>
                                 <tr>
-                                    <th>{{ __('コメント') }}</th>
-                                    <td>{{ Auth::user()->comment }}</td>
+                                    <th class="fas fa-comment-dots" style="word-break:break-all;">
+                                    {{ Auth::user()->comment }}
+                                    </th>
                                 </tr>
                                 <tr>
                                     <th>
