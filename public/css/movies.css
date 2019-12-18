@@ -360,8 +360,8 @@ display: flex;
 }
 .ranking_list{
   display: flex;
-  flex-wrap: wrap;
-  /* justify-content: space-around; */
+  flex-wrap: wrap; 
+  justify-content: space-around;
 }
 .list{
   display: flex;
@@ -370,6 +370,14 @@ display: flex;
 .like{
   margin-top: 45px;
   margin-bottom: 100px;
+}
+.ranks{
+  /* width: 80%; */
+  display: flex;
+  justify-content: center;
+}
+.ranklike{
+  /* max-width: 80%; */
 }
 /* .fas{
   width: 100px;
