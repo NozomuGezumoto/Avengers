@@ -27,7 +27,6 @@
           </div>
         </div>
       </div>
-  
   </form>
 
   {{-- $loopでforeachの数 index現在の出力数 5になったら break終了 --}}
