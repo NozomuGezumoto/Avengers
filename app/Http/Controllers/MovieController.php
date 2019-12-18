@@ -80,7 +80,7 @@ class MovieController extends Controller
         // getContents()〜の内容を全て文字列に読み込む
 
         // usort 映画APIを昇順・降順に並べる
-        if(isset($result))
+        if(isset($results))
         {
             usort($results, function($a, $b) {
                 return $a->release_date > $b->release_date ? -1 : 1;
