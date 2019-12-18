@@ -42,4 +42,5 @@ class User extends Authenticatable
         // １対多 の関係の多
         return $this->hasMany(Review::class);
     }
+
 }
