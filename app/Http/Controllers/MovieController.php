@@ -17,7 +17,6 @@ class MovieController extends Controller
 {
     function index()
     {
-        dd(1);
         $client = new Client();
         $url = 'https://api.themoviedb.org/3/movie/now_playing?';
         $params = [
