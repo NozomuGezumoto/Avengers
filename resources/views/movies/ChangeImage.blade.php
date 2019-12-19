@@ -17,7 +17,7 @@
 
                         {{-- イメージ画像表示 --}}
                         <div class="nav-item" style="text-align:center">
-                          <img height="80px" src="{{ asset(Auth::user()->picture_path) }}" >
+                          <img height="80px" src="{{ Auth::user()->picture_path }}" >
                         </div>
                         <br>
 

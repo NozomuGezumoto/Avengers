@@ -81,7 +81,7 @@
 {{-- イメージ画像表示 --}}
                         <a href="{!! action('MovieController@ChangeImage') !!}">
                             <div class="nav-item" style="text-align:center" button>
-                                <img height="80px" src="{{ asset(Auth::user()->picture_path) }}" >
+                                <img height="80px" src="{{ Auth::user()->picture_path }}" >
                             </div>
                         </a>
                         <div style="margin-top: 30px;">

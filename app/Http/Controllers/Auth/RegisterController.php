@@ -71,13 +71,15 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        $imgPath = $this->saveProfileImage($data['picture']);
+        // $imgPath = $this->saveProfileImage($data['picture']);
+
+        $imageData = file_get_contents($data['picture']);
 
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
-            'picture_path' => $imgPath,
+            'picture_path' => "data:image/png;base64," . base64_encode($imageData),
             'comment' => $data['comment'],
         ]);
 

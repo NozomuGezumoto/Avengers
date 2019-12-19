@@ -60,7 +60,7 @@
       <a href="{!! action('MovieController@Mypage') !!}">
 
       @if (isset(Auth::user()->picture_path))
-        <img height="40px" src="{{ asset(Auth::user()->picture_path) }}" >
+        <img height="40px" src="{{ Auth::user()->picture_path }}" >
       @else
         <i class="far fa-user icons"></i>
       @endif

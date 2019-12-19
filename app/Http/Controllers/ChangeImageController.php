@@ -20,7 +20,9 @@ class ChangeImageController extends Controller
         // 古い画像のパスを退避
         $oldPath = $user->picture_path;
         // 現在のユーザー情報の画像のパスに新しいパスを代入
-        $user->picture_path = $path;
+        $imageData = file_get_contents($request->picture);
+
+        $user->picture_path = "data:image/png;base64," . base64_encode($imageData);
         // ユーザー情報を保存
 
         $user->save();
