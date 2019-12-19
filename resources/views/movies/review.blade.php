@@ -29,7 +29,7 @@
           @endif
           <input type="hidden" class="review-id" value="{{ $review->id }}">
           <span class="js-like-num">{{ $review->likes->count() }}</span>
-        <p><img class="list_u" height="100px" src="{{ asset($review->user->picture_path) }}"></p>
+        <p><img class="list_u" height="100px" src="{{ $review->user->picture_path }}"></p>
            <p ><img width="100" height="200px" src="{{ asset($review->animal_img_path) }}"></p>
            <p><img width="100" height="200px" src="{{ asset($review->food_img_path)}}"></p>
           {{-- </div> --}}
