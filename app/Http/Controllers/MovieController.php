@@ -236,7 +236,7 @@ class MovieController extends Controller
         $movie_id = $request->session()->get('movie_id');
         $img1 = $request->session()->get('img1');
         $img2 = $request->session()->get('img2');
-        dd($user_id);
+        dd($review);
 
         $review->user_id = $user_id;
         $review->movie_id = $movie_id;
