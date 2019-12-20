@@ -240,8 +240,8 @@ class MovieController extends Controller
         $review->user_id = $user_id;
         $review->movie_id = $movie_id;
         $review->animal_img_path = $img1;
-        dd($review);
         $review->food_img_path = $img2;
+        dd($review);
         $review->save();
         return view('movies.confirm');
     }
