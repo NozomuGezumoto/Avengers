@@ -238,8 +238,8 @@ class MovieController extends Controller
         $img2 = $request->session()->get('img2');
         
         $review->user_id = $user_id;
-        dd($review);
         $review->movie_id = $movie_id;
+        dd($review);
         $review->animal_img_path = $img1;
         $review->food_img_path = $img2;
         $review->save();
