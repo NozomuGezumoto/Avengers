@@ -231,6 +231,7 @@ class MovieController extends Controller
     {
         $user_id = Auth::user()->id;
 
+        dd(1);
         $review = new Review;
 
         $movie_id = $request->session()->get('movie_id');
