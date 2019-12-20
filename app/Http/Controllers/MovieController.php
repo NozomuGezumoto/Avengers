@@ -231,12 +231,12 @@ class MovieController extends Controller
     {
         $user_id = Auth::user()->id;
 
-        dd(1);
         $review = new Review;
 
         $movie_id = $request->session()->get('movie_id');
         $img1 = $request->session()->get('img1');
         $img2 = $request->session()->get('img2');
+        dd($movie_id);
 
         $review->user_id = $user_id;
         $review->movie_id = $movie_id;
