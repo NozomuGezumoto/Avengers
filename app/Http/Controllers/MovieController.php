@@ -241,8 +241,8 @@ class MovieController extends Controller
         $review->movie_id = $movie_id;
         $review->animal_img_path = $img1;
         $review->food_img_path = $img2;
-        dd($review);
         $review->save();
+        dd($review);
         return view('movies.confirm');
     }
 
